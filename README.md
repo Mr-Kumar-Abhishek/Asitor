@@ -20,6 +20,22 @@ This is a student information system meant for small coaching institutes to mana
 * How to run tests: compile and run tests.
 * Deployment instructions: Deployment should be cross-platform, for linux it should have a make, configure and install script and in windows it should have a proper installer.
 
+### Build instructions
+
+* Linux
+
+For linux, clone the repository, then move to src directory:
+
+`cd src`
+
+Then make:
+
+`make`
+
+You will find the binary build in 'asitor/build':
+
+`../build/`
+
 ### Contribution guidelines ###
 
 * Writing tests
