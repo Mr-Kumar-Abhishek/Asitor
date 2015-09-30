@@ -19,10 +19,11 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="label1">
+              <object class="GtkLabel" id="uname">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">label</property>
+                <property name="label" translatable="yes">User Email:</property>
+                <property name="ellipsize">start</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -58,10 +59,12 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="label2">
+              <object class="GtkLabel" id="upass">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">label</property>
+                <property name="xalign">0.47999998927116394</property>
+                <property name="label" translatable="yes">Password:</property>
+                <property name="ellipsize">start</property>
               </object>
               <packing>
                 <property name="expand">True</property>
