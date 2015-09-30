@@ -1,6 +1,7 @@
 #include "asitor.h"
 
-int main(void){
-	printf("test run for asitor\n");
+int main(int argc, char **argv){
+	//printf("test run for asitor\n");
+	void init_login(int argc, char **argv);
 	return 0;
 }
