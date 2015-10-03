@@ -1,5 +1,28 @@
 #include "includes/asitor.h"
 
+struct loginer {
+	GtkEntry entry_uname; //username textbox
+	GtkEntry entry_upass; //pasword textbox
+};
+
+typedef struct loginer txtboxes;
+
+G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes *gtexters){
+	char luemail[255];
+	char lupass[255];
+
+	//getting text from the text boxes
+ 	const gchar *emailer = gtk_entry_get_text(gtexters->entry_uname);
+ 	const gchar *passer = gtk_entry_get_text(gtexters->entry_upass);
+
+ 	// getting text from text boxes (input)
+ 	strcpy(luemail, emailer);
+ 	strcpy(lupass, passer);
+
+ 	//reversing and setting new text (output)
+ 	gtk_entry_set_text(gtexters->entry_uname, lupass);
+ 	gtk_entry_set_text(gtexters->entry_upass, luemail);
+}
 int main(int argc, char **argv){
 	int proc; //holds the proc value for the entire application 
 	GtkBuilder *builder;
