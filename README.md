@@ -36,6 +36,16 @@ You will find the binary build in 'asitor/build':
 
 `../build/`
 
+### How to run ?
+
+Go to the build directory,
+
+`cd ../build/` from terminal or use any file browser.
+
+Then to run on linux use this command on terminal,
+
+`./asitor` or double click on the icon named asitor.
+
 ### Contribution guidelines ###
 
 * Writing tests
