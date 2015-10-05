@@ -1,13 +1,16 @@
 #include "includes/asitor.h"
+ 
+typedef struct loginer {
+	GtkEntry *entry_uname; //username textbox
+	GtkEntry *entry_upass; //pasword textbox
+}txtboxes;
 
-struct loginer {
-	GtkEntry entry_uname; //username textbox
-	GtkEntry entry_upass; //pasword textbox
-};
+G_MODULE_EXPORT void on_window1_destroy ()
+{
+    gtk_main_quit ();
+}
 
-typedef struct loginer txtboxes;
-
-G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes *gtexters){
+G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters){
 	char luemail[255];
 	char lupass[255];
 
@@ -23,6 +26,7 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes *gtexters)
  	gtk_entry_set_text(gtexters->entry_uname, lupass);
  	gtk_entry_set_text(gtexters->entry_upass, luemail);
 }
+
 int main(int argc, char **argv){
 	int proc; //holds the proc value for the entire application 
 	GtkBuilder *builder;

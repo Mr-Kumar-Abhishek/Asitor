@@ -8,7 +8,6 @@
     <property name="title" translatable="yes">Asitor Login</property>
     <property name="default_width">440</property>
     <property name="default_height">250</property>
-    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox2">
         <property name="visible">True</property>
@@ -110,6 +109,7 @@
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Press to login to Asitor</property>
                 <property name="use_action_appearance">False</property>
+                <signal name="clicked" handler="on_login_btn_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
