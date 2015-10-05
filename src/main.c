@@ -32,6 +32,7 @@ int main(int argc, char **argv){
 	int proc; //holds the proc value for the entire application 
 	GtkBuilder *builder;
 	GtkWidget *window;
+	txtboxes gtexters;
 	GError *error = NULL;
 	/* Init GTK+ */
 	gtk_init( &argc, &argv );
@@ -47,8 +48,14 @@ int main(int argc, char **argv){
 	}
 	/* Get main window pointer from UI */
 	window = GTK_WIDGET( gtk_builder_get_object( builder, "login" ) );
-	/* Connect signals */
-	gtk_builder_connect_signals( builder, NULL );
+	
+	//connecting each structure member to it appropriate gtkwidget
+	
+	gtexters.entry_uname = GTK_ENTRY(gtk_builder_get_object(builder, "entry_uname" ));
+	gtexters.entry_upass = GTK_ENTRY(gtk_builder_get_object(builder, "entry_upass" )); 
+
+	/* Connect signals with appropriate handlers so that handlers could be called when button is clicked */
+	gtk_builder_connect_signals( builder, &gtexters);
 	/* Destroy builder, since we don't need it anymore */
 	g_object_unref( G_OBJECT( builder ) );
 	/* Show window. All other widgets are automatically shown by GtkBuilder */
