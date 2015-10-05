@@ -34,7 +34,7 @@ int main(int argc, char **argv){
 	/* Create new GtkBuilder object */
 	builder = gtk_builder_new();
 	/* Load UI from file. If error occurs, report it and quit application.
-	 Replace "tut.glade" with your saved project. */
+	 Replace "gui/login.glade" with your saved project with your startup form.*/
 	if( ! gtk_builder_add_from_file( builder, "gui/login.glade", &error )){
 		g_warning( "%s", error->message );
 		g_free( error );
