@@ -5,7 +5,7 @@ typedef struct loginer {
 	GtkEntry *entry_upass; //pasword textbox
 }txtboxes;
 
-G_MODULE_EXPORT void on_window1_destroy ()
+G_MODULE_EXPORT void on_login_destroy ()
 {
     gtk_main_quit ();
 }
@@ -21,6 +21,7 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters)
  	// getting text from text boxes (input)
  	strcpy(luemail, emailer);
  	strcpy(lupass, passer);
+
 
  	//reversing and setting new text (output)
  	gtk_entry_set_text(gtexters->entry_uname, lupass);

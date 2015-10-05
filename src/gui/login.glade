@@ -8,6 +8,7 @@
     <property name="title" translatable="yes">Asitor Login</property>
     <property name="default_width">440</property>
     <property name="default_height">250</property>
+    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox2">
         <property name="visible">True</property>
