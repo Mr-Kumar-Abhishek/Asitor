@@ -29,7 +29,6 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters)
 }
 
 int main(int argc, char **argv){
-	int proc; //holds the proc value for the entire application 
 	GtkBuilder *builder;
 	GtkWidget *window;
 	txtboxes gtexters;
