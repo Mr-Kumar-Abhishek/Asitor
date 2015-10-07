@@ -1,6 +1,6 @@
 # Asitor #
 
-This is a student information system meant for small coaching institutes to manage their students and their fees, etc.
+This is a student information system meant for small coaching institutes to manage their students.
 
 ### What is this repository for? ###
 
