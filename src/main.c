@@ -42,8 +42,8 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters,
   {
     gtk_widget_hide(dialog);
     gtk_widget_destroy(dialog);
-    gtk_widget_hide(window);
-    gtk_widget_destroy(window);
+//    gtk_widget_hide(window);
+//    gtk_widget_destroy(window);
   }
 
 
