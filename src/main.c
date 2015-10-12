@@ -32,7 +32,7 @@ void init_db_messages() {
 }
 /*
 void init_db () {
-		// initializing engine
+		// initializing library
 		int ret;
         do {
 
