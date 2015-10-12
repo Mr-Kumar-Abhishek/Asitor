@@ -29,7 +29,7 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters)
 
  	GtkWidget* dialog;
 
- 	dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, "ho ?" );
+ 	dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_QUESTION, GTK_BUTTONS_CLOSE, "ho ?" );
  	
  	gtk_window_set_title(GTK_WINDOW(dialog), "hum");
 
