@@ -38,7 +38,7 @@ void init_db () {
         do {
 
         	if (SQLITE_OK == (ret = sqlite3_initialize())){
-        		init_db_messages("Initialization Faliure", "uh , oh... Cant initialize database drivers");
+        		init_db_messages("Initialization Faliure", "uh , oh... failed to initialize library");
             	break;
         	}
 
