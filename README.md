@@ -4,11 +4,11 @@ This is a student information system meant for small coaching institutes to mana
 
 ### What is this repository for? ###
 
-* Quick summary: This repository is for developers to enhance, debug or fork the repository , however any user could download the binaries from the download section.
+* Quick summary: This repository is for developers to enhance, debug or fork the repository. In a nutshell this is not serious project. However my plays turns out to be serious most of the time later on.
 
 * Version: pre-alpha.
 
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo): In order to document on this project you need to learn markdown as this the language we are using to document everything about this project.
+* Learn Markdown: In order to document on this project you need to learn markdown as this the language we are using to document everything about this project.
 
 ### How do I get set up? ###
 
@@ -54,5 +54,4 @@ Then to run on linux use this command on terminal,
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Repo owner
