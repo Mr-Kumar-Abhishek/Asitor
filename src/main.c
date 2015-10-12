@@ -32,12 +32,11 @@ void init_db_messages() {
 }
 /*
 void init_db () {
-	//from here will be initializing database at start up..
 		// initializing engine
 		int ret;
         do {
 
-        	if (SQLITE_OK == (ret = sqlite3_initialize())){
+        	if (SQLITE_OK != (ret = sqlite3_initialize())){
         		init_db_messages("Initialization Faliure", "uh , oh... failed to initialize library");
             	break;
         	}
