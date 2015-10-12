@@ -30,7 +30,7 @@ void init_db_messages() {
   }
 
 }
-/*
+
 void init_db () {
 		// initializing library
 		int ret;
@@ -43,7 +43,7 @@ void init_db () {
 
         }while(0);
 }
-*/
+
 G_MODULE_EXPORT void on_login_destroy ()
 {
     gtk_main_quit ();

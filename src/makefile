@@ -4,4 +4,4 @@ LDFLAGS := $(shell pkg-config --libs glib-2.0 gtk+-2.0 gmodule-2.0)
 LIBS := -lsqlite3
 DEBUG = -Wall
 asitor: main.c
-	$(CC) $(DEBUG) $(CFLAGS) $(LIBS) $< -o ../build/$@ $(LDFLAGS) 
+	$(CC) $(DEBUG) $(CFLAGS) $< -o ../build/$@ $(LDFLAGS) $(LIBS) 
