@@ -26,6 +26,15 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters)
  	//reversing and setting new text (output)
  	gtk_entry_set_text(gtexters->entry_uname, lupass);
  	gtk_entry_set_text(gtexters->entry_upass, luemail);
+
+ 	GtkWidget* dialog;
+
+ 	dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, "ho ?" );
+ 	
+ 	gtk_window_set_title(GTK_WINDOW(dialog), "hum");
+
+ 	gint result = gtk_dialog_run(GTK_DIALOG(dialog));
+
 }
 
 int main(int argc, char **argv){
