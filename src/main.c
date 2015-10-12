@@ -10,7 +10,7 @@ G_MODULE_EXPORT void on_login_destroy ()
     gtk_main_quit ();
 }
 
-G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters){
+G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters, GtkWidget *window){
 	char luemail[255];
 	char lupass[255];
 
@@ -29,11 +29,23 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters)
 
  	GtkWidget* dialog;
 
- 	dialog = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "ho ?" );
+
+
+
+ 	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "ho ?" );
  	
  	gtk_window_set_title(GTK_WINDOW(dialog), "hum");
 
  	gint result = gtk_dialog_run(GTK_DIALOG(dialog));
+
+ 	 	if(dialog!=NULL)
+  {
+    gtk_widget_hide(dialog);
+    gtk_widget_destroy(dialog);
+    gtk_widget_hide(window);
+    gtk_widget_destroy(window);
+  }
+
 
 }
 
