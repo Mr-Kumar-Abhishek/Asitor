@@ -1,6 +1,6 @@
 # Asitor #
 
-![Join the chat at https://gitter.im/Mr-Kumar-Abhishek/Asitor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mr-Kumar-Abhishek/Asitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/Mr-Kumar-Abhishek/Asitor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mr-Kumar-Abhishek/Asitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is a student information system meant for small coaching institutes to manage their students.
 
