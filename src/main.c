@@ -26,7 +26,7 @@ void init_db () {
             	break;
         	}
         	 // opening connection to a DB
-			if (SQLITE_OK != (ret = sqlite3_open_v2("test.db", &database, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL))){
+			if (SQLITE_OK != (ret = sqlite3_open_v2("astior.db", &database, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL))){
 				strcpy(text,"Failed to open connection");
 				flag=1;
 				break;
