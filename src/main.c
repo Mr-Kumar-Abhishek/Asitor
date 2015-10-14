@@ -9,41 +9,45 @@ typedef struct loginer {
 	GtkEntry *entry_upass; //pasword textbox
 }txtboxes;
 
-
-void init_db_messages() {
-	 GtkWidget* dialog;
-
- 	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "the text");
- 	
- 	gtk_window_set_title(GTK_WINDOW(dialog), "the title");
-
- 	//gint result = 
-
- 	gtk_dialog_run(GTK_DIALOG(dialog));
-
- 	 	if(dialog!=NULL)
-  {
-    gtk_widget_hide(dialog);
-    gtk_widget_destroy(dialog);
-//    gtk_widget_hide(window);
-//    gtk_widget_destroy(window);
-  }
-
-}
-
 void init_db () {
-		// initializing library
+		
+		int flag = 0;
 		int ret;
+		char text[256];
+		char title[] = "Database Connection";
+		GtkWidget* dialog;
+		sqlite3* database = NULL;
+		sqlite3_stmt* statement = NULL;
         do {
-
+        	// initializing library
         	if (SQLITE_OK != (ret = sqlite3_initialize())){
-        		init_db_messages("Initialization Faliure", "uh , oh... failed to initialize library");
+        		strcpy(text,"uh oh.. failed to initialize library");
+        		flag= 1;
             	break;
         	}
-
+        	 // opening connection to a DB
+			if (SQLITE_OK != (ret = sqlite3_open_v2("test.db", &database, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL))){
+				strcpy(text,"Failed to open connection");
+				flag=1;
+				break;
+			}
+			// from here preparing the statement
         }while(0);
+         // cleaning up
+		if (NULL != statement) sqlite3_finalize(statement);
+		if (NULL != database) sqlite3_close(database);
+		sqlite3_shutdown();
+        if(flag == 1) {
+        	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, text);
+ 			gtk_window_set_title(GTK_WINDOW(dialog), title);
+ 			gtk_dialog_run(GTK_DIALOG(dialog));
+ 	 		if(dialog!=NULL){
+    			gtk_widget_hide(dialog);
+    			gtk_widget_destroy(dialog);	
+        	}
+       
+  		}
 }
-
 G_MODULE_EXPORT void on_login_destroy ()
 {
     gtk_main_quit ();
@@ -67,7 +71,7 @@ G_MODULE_EXPORT void on_login_btn_clicked(GtkButton *button, txtboxes* gtexters,
  	gtk_entry_set_text(gtexters->entry_uname, lupass);
  	gtk_entry_set_text(gtexters->entry_upass, luemail);
 
- 	init_db_messages();
+ 	init_db();
 
 }
 
