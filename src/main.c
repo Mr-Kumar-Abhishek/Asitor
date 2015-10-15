@@ -26,26 +26,43 @@ void init_db () {
             	break;
         	}
         	 // opening connection to a DB
-			if (SQLITE_OK != (ret = sqlite3_open_v2("astior.db", &database, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL))){
-				strcpy(text,"Failed to open connection");
+			if (SQLITE_OK != (ret = sqlite3_open_v2(":memory:", &database, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL))){
+				strcpy(text,"aww.. snap..Failed to open connection");
 				flag=1;
 				break;
 			}
+			// preparing statement
+			if (SQLITE_OK != (ret = sqlite3_prepare_v2(database, "SELECT SQLITE_VERSION()", -1, &statement, NULL))){
+				strcpy(text, "oops .. failed to prepare statements");
+				flag = 1;
+				break;
+			}
+
+			 if (SQLITE_ROW != (ret = sqlite3_step(statement))){
+				strcpy(text, "hmm... failed to step look into it");
+				break;
+			}
+
+
+			if(flag == 1) {
+        		dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,"%s", text);
+ 				
+        	}else {
+        		dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,"%s", sqlite3_column_text(statement, 0));	
+        	}
+        	gtk_window_set_title(GTK_WINDOW(dialog), title);
+ 			gtk_dialog_run(GTK_DIALOG(dialog));
+ 	 		if(dialog!=NULL){
+    			gtk_widget_hide(dialog);
+    			gtk_widget_destroy(dialog);	
+       
+  			}
         }while(0);
          // cleaning up
 		if (NULL != statement) sqlite3_finalize(statement);
 		if (NULL != database) sqlite3_close(database);
 		sqlite3_shutdown();
-        if(flag == 1) {
-        	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,"%s", text);
- 			gtk_window_set_title(GTK_WINDOW(dialog), title);
- 			gtk_dialog_run(GTK_DIALOG(dialog));
- 	 		if(dialog!=NULL){
-    			gtk_widget_hide(dialog);
-    			gtk_widget_destroy(dialog);	
-        	}
-       
-  		}
+        
 }
 G_MODULE_EXPORT void on_login_destroy ()
 {
