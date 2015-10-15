@@ -31,14 +31,13 @@ void init_db () {
 				flag=1;
 				break;
 			}
-			// from here preparing the statement
         }while(0);
          // cleaning up
 		if (NULL != statement) sqlite3_finalize(statement);
 		if (NULL != database) sqlite3_close(database);
 		sqlite3_shutdown();
         if(flag == 1) {
-        	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, text);
+        	dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,"%s", text);
  			gtk_window_set_title(GTK_WINDOW(dialog), title);
  			gtk_dialog_run(GTK_DIALOG(dialog));
  	 		if(dialog!=NULL){
