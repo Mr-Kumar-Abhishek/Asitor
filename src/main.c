@@ -42,9 +42,8 @@ void init_db () {
 				strcpy(text, "hmm... failed to step look into it");
 				break;
 			}
-
-
-			if(flag == 1) {
+        }while(0);
+        	if(flag == 1) {
         		dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,"%s", text);
  				
         	}else {
@@ -57,7 +56,6 @@ void init_db () {
     			gtk_widget_destroy(dialog);	
        
   			}
-        }while(0);
          // cleaning up
 		if (NULL != statement) sqlite3_finalize(statement);
 		if (NULL != database) sqlite3_close(database);
