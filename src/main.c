@@ -1,8 +1,14 @@
 #include <stdio.h>
+#include <string.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
-#include <string.h>
 #include <sqlite3.h>
+#include <glib.h>
+#include <glib/gprintf.h>
+#include <gtksourceview/gtksourceview.h>
+#include <gtksourceview/gtksourcebuffer.h>
+#include <gtksourceview/gtksourcelanguage.h>
+#include <gtksourceview/gtksourcelanguagemanager.h>
 
 typedef struct loginer {
 	GtkEntry *entry_uname; //username textbox
