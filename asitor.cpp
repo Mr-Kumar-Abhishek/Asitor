@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QWidget>
+#include <QPixmap>
+#include <QSplashScreen>
 #include <QIcon>
 
 int main(int argc, char* argv[]) {
@@ -16,7 +18,14 @@ int main(int argc, char* argv[]) {
 
 	QApplication asitor(argc, argv);
 
-	QWidget splash; // splash widget to welcome the user
+	QPixmap asitor_splasher(":/splash.gif");
+
+	QSplashScreen splash(asitor_splasher);
+	splash.setToolTip("Welcome !!");
+	splash.show();
+	asitor.processEvents();
+
+	QWidget choose_db; // choose_db widget to select database
 
 	QDesktopWidget *our_desktop = QApplication::desktop(); // taking desktop as a desktop widget
 
@@ -28,12 +37,11 @@ int main(int argc, char* argv[]) {
 	y = (screen_height - height ) / 2;
 	x = (screen_width - width ) / 2; 
 
-	splash.resize(width, height);
-	splash.move(x,y);
-	splash.setWindowTitle("Asitor");
-	splash.setToolTip("Welcome !!");
-	splash.setWindowIcon(QIcon("asitor.ico"));
-	splash.show();
-
+	choose_db.resize(width, height);
+	choose_db.move(x,y);
+	choose_db.setWindowTitle("Asitor");
+	choose_db.setWindowIcon(QIcon("asitor.ico"));
+	choose_db.show();
+	splash.finish(&choose_db);
 	return asitor.exec();
 }
