@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QWidget>
+#include <QIcon>
 
 int main(int argc, char* argv[]) {
 	
@@ -31,6 +32,7 @@ int main(int argc, char* argv[]) {
 	splash.move(x,y);
 	splash.setWindowTitle("Asitor");
 	splash.setToolTip("Welcome !!");
+	splash.setWindowIcon(QIcon("asitor.ico"));
 	splash.show();
 
 	return asitor.exec();
