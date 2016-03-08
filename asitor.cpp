@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
 	splash.resize(width, height);
 	splash.move(x,y);
 	splash.setWindowTitle("Asitor");
+	splash.setToolTip("Welcome !!");
 	splash.show();
 
 	return asitor.exec();
