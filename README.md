@@ -16,7 +16,7 @@ This is a student information system meant for small coaching institutes to mana
 
 * Summary of set up : In order to setup this software (in pre-alpha stage) you need to have glade and all the development files of C and C++. Currently it is made as a cross-platform from the start so compilation of this software is possible in any sytem provided it has all the development files for compilation.
 
-* Configuration: C++ compiler (preferable is gcc or mingw for windows), and QT development tools. 
+* Configuration: C++ compiler (preferable is g++, clang or mingw for windows), and QT development tools. 
 * Dependencies: QT, Sqlite.
 * Database configuration: Sqlite.
 * How to run tests: compile and run tests.
