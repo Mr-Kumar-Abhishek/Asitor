@@ -26,7 +26,7 @@ This is a student information system meant for small coaching institutes to mana
 
 * Linux
 
-For linux, clone the repository, then move to src directory:
+For linux, clone the repository, then move to source directory:
 
 ```
 qmake
