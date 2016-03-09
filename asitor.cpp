@@ -1,9 +1,23 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QWidget>
+#include <QPushButton>
 #include <QPixmap>
 #include <QSplashScreen>
 #include <QIcon>
+
+
+class choose_db : public QWidget{
+	public:
+		choose_db(QWidget *parent = 0);
+};
+
+choose_db::choose_db(QWidget *parent):QWidget(parent) {
+	QPushButton *qbutton = new QPushButton("Quit", this);
+	qbutton->setGeometry(200, 100, 40, 30);
+
+	connect(qbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
+}
 
 int main(int argc, char* argv[]) {
 	
@@ -25,7 +39,7 @@ int main(int argc, char* argv[]) {
 	splash.show();
 	asitor.processEvents();
 
-	QWidget choose_db; // choose_db widget to select database
+	choose_db c_db; // choose_db widget to select database
 
 	QDesktopWidget *our_desktop = QApplication::desktop(); // taking desktop as a desktop widget
 
@@ -37,11 +51,11 @@ int main(int argc, char* argv[]) {
 	y = (screen_height - height ) / 2;
 	x = (screen_width - width ) / 2; 
 
-	choose_db.resize(width, height);
-	choose_db.move(x,y);
-	choose_db.setWindowTitle("Asitor");
-	choose_db.setWindowIcon(QIcon("asitor.ico"));
-	choose_db.show();
-	splash.finish(&choose_db);
+	c_db.resize(width, height);
+	c_db.move(x,y);
+	c_db.setWindowTitle("Asitor");
+	c_db.setWindowIcon(QIcon("asitor.ico"));
+	c_db.show();
+	splash.finish(&c_db);
 	return asitor.exec();
 }
