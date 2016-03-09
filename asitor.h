@@ -14,6 +14,7 @@
 #include <QFileDialog>
 #include <QComboBox>
 #include <QDir>
+#include <QLineEdit>
 
 
 class choose_db : public QWidget{

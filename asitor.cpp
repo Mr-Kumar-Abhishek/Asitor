@@ -4,12 +4,14 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
 	QPushButton *obutton = new QPushButton("Okay", this);
 	QPushButton *bbutton = new QPushButton("Browse", this);
+    QLineEdit *filepath = new QLineEdit;
 	QLabel *label = new QLabel("Choose database file:", this);
 	
 	QGridLayout * grid = new QGridLayout(this);
 	grid->addWidget(label,0, 0);
-	grid->addWidget(bbutton,0 ,1);
-	grid->addWidget(obutton, 0,2);
+	grid->addWidget(filepath, 0, 1);
+	grid->addWidget(bbutton, 0 ,2);
+	grid->addWidget(obutton, 1, 1);
 	grid->addWidget(qbutton, 1, 2);
 
 	setLayout(grid);
