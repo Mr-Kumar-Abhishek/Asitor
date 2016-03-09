@@ -3,6 +3,19 @@
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));
+	this->resize(350,200);
+	QLabel* admin_email = new QLabel("Admin Email: ", this);
+	QLabel* password = new QLabel("Password: ", this);
+	QLineEdit *email_line = new QLineEdit;
+	QLineEdit *pass_line = new QLineEdit;
+
+	QGridLayout *grid = new QGridLayout(this);
+	grid->addWidget(admin_email, 0, 0);
+	grid->addWidget(email_line, 0, 1);
+	grid->addWidget(password, 1, 0);
+	grid->addWidget(pass_line, 1, 1);
+
+	setLayout(grid);
 }
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
