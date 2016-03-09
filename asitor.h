@@ -7,9 +7,19 @@
 #include <QPixmap>
 #include <QSplashScreen>
 #include <QIcon>
+#include <QLabel>
+#include <QGridLayout>
+#include <QObject>
 
 
 class choose_db : public QWidget{
+
+	 Q_OBJECT
+
 	public:
 		choose_db(QWidget *parent = 0);
+
+	private slots:
+		void on_okay();
+		void on_browse();
 };

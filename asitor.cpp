@@ -2,10 +2,25 @@
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
-	qbutton->setGeometry(200, 100, 40, 30);
+	QPushButton *obutton = new QPushButton("Okay", this);
+	QPushButton *bbutton = new QPushButton("Browse", this);
+	QLabel *label = new QLabel("Choose:", this);
+	
+	QGridLayout * grid = new QGridLayout(this);
+	grid->addWidget(label,0, 0);
+	grid->addWidget(bbutton,0 ,1);
+	grid->addWidget(obutton, 0,2);
+	grid->addWidget(qbutton, 1, 2);
+
+	setLayout(grid);
 
 	connect(qbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
+	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
+	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
 }
+
+void choose_db::on_okay() {}
+void choose_db::on_browse() {}
 
 int main(int argc, char* argv[]) {
 	
