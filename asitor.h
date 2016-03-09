@@ -27,4 +27,5 @@ class choose_db : public QWidget{
 	private slots:
 		void on_okay();
 		void on_browse();
+		void on_new();
 };
