@@ -1,5 +1,7 @@
 #include "asitor.h"
 
+new_db::new_db(QWidget *parent):QWidget(parent) {}
+
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
 	QPushButton *obutton = new QPushButton("Okay", this);
@@ -28,7 +30,11 @@ void choose_db::on_okay() {}
 void choose_db::on_browse() {
     QString directory = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
 }
-void choose_db::on_new() {}
+void choose_db::on_new() {
+	new_db* n_db = new new_db;
+	n_db->show();
+	this->hide();
+}
 
 int main(int argc, char* argv[]) {
 	
@@ -50,7 +56,7 @@ int main(int argc, char* argv[]) {
 	splash.show();
 	asitor.processEvents();
 
-	choose_db c_db; // choose_db widget to select database
+	choose_db* c_db = new choose_db; // choose_db widget to select database
 
 	QDesktopWidget *our_desktop = QApplication::desktop(); // taking desktop as a desktop widget
 
@@ -62,11 +68,11 @@ int main(int argc, char* argv[]) {
 	y = (screen_height - height ) / 2;
 	x = (screen_width - width ) / 2; 
 
-	c_db.resize(width, height);
-	c_db.move(x,y);
-	c_db.setWindowTitle("Asitor");
-	c_db.setWindowIcon(QIcon("asitor.ico"));
-	c_db.show();
-	splash.finish(&c_db);
+	c_db->resize(width, height);
+	c_db->move(x,y);
+	c_db->setWindowTitle("Asitor");
+	c_db->setWindowIcon(QIcon("asitor.ico"));
+	c_db->show();
+	splash.finish(c_db);
 	return asitor.exec();
 }

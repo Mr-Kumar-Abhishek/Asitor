@@ -29,3 +29,10 @@ class choose_db : public QWidget{
 		void on_browse();
 		void on_new();
 };
+
+class new_db : public QWidget {
+	Q_OBJECT
+
+	public:
+		new_db(QWidget *parent = 0);
+};
