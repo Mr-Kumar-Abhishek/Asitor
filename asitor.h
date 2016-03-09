@@ -10,6 +10,10 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QObject>
+#include <QDialog>
+#include <QFileDialog>
+#include <QComboBox>
+#include <QDir>
 
 
 class choose_db : public QWidget{

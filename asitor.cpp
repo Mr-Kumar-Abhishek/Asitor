@@ -4,7 +4,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
 	QPushButton *obutton = new QPushButton("Okay", this);
 	QPushButton *bbutton = new QPushButton("Browse", this);
-	QLabel *label = new QLabel("Choose:", this);
+	QLabel *label = new QLabel("Choose database file:", this);
 	
 	QGridLayout * grid = new QGridLayout(this);
 	grid->addWidget(label,0, 0);
@@ -20,7 +20,9 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 }
 
 void choose_db::on_okay() {}
-void choose_db::on_browse() {}
+void choose_db::on_browse() {
+    QString directory = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
+}
 
 int main(int argc, char* argv[]) {
 	
