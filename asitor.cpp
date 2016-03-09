@@ -1,6 +1,9 @@
 #include "asitor.h"
 
-new_db::new_db(QWidget *parent):QWidget(parent) {}
+new_db::new_db(QWidget *parent):QWidget(parent) {
+	this->setWindowTitle("New Database");
+	this->setWindowIcon(QIcon("asitor.ico"));
+}
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
