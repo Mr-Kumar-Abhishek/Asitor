@@ -1,16 +1,4 @@
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QWidget>
-#include <QPushButton>
-#include <QPixmap>
-#include <QSplashScreen>
-#include <QIcon>
-
-
-class choose_db : public QWidget{
-	public:
-		choose_db(QWidget *parent = 0);
-};
+#include "asitor.h"
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	QPushButton *qbutton = new QPushButton("Quit", this);
