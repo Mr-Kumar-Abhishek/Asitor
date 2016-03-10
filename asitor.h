@@ -15,11 +15,12 @@
 #include <QComboBox>
 #include <QDir>
 #include <QLineEdit>
+#include <QMessageBox>
 
 
 class choose_db : public QWidget{
 
-	 Q_OBJECT
+	Q_OBJECT
 
 	public:
 		choose_db(QWidget *parent = 0);
@@ -39,6 +40,7 @@ class choose_db : public QWidget{
 };
 
 class new_db : public QWidget {
+	
 	Q_OBJECT
 
 	public:

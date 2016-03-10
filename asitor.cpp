@@ -96,7 +96,22 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	connect(qbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
-void choose_db::on_okay() {}
+void choose_db::on_okay() {
+	QString db_file = filepath->text();
+	QMessageBox* db_messages = new QMessageBox(this);
+	if(QFile(db_file).exists()) {
+		QFileInfo* db_file_info = new QFileInfo(db_file);
+		if (!db_file_info->isDir()) {
+			db_messages->setText("Confirmed: Got a file to check...");
+		}else {
+			db_messages->setText("oops, got a directory instead of a file ..");
+		}
+	}else {
+		db_messages->setText("File or folder doesn't exist at the specified location.");
+	}
+	db_messages->exec();
+}
+
 void choose_db::on_browse() {
     QString filename = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
     filepath->insert(filename);
