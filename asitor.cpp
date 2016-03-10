@@ -88,6 +88,7 @@ int main(int argc, char* argv[]) {
 	c_db->move(x,y);
 	c_db->setWindowTitle("Asitor");
 	c_db->setWindowIcon(QIcon("asitor.ico"));
+	c_db->setWindowFlags(Qt::WindowCloseButtonHint);
 	c_db->show();
 	splash.finish(c_db);
 	return asitor.exec();
