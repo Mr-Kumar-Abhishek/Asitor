@@ -38,4 +38,17 @@ class new_db : public QWidget {
 
 	private slots:
 		void on_back();
+		void on_browse();
+
+	private:
+		QLabel* admin_email; 
+		QLabel* password;
+		QLabel* choose_dir;
+		QLineEdit *email_line; 
+		QLineEdit *pass_line; 
+		QLineEdit *dir_line; 
+		QPushButton* nokay;
+		QPushButton* ncancel; 
+		QPushButton* browse; 
+		QPushButton* nback; 
 };

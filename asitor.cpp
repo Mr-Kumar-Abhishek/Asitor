@@ -5,16 +5,16 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowIcon(QIcon("asitor.ico"));
 	this->resize(350,200);
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
-	QLabel* admin_email = new QLabel("Admin Email: ", this);
-	QLabel* password = new QLabel("Password: ", this);
-	QLabel* choose_dir = new QLabel("Choose Folder: ", this);
-	QLineEdit *email_line = new QLineEdit(this);
-	QLineEdit *pass_line = new QLineEdit(this);
-	QLineEdit *dir_line = new QLineEdit(this);
-	QPushButton* nokay = new QPushButton("Okay", this);
-	QPushButton* ncancel = new QPushButton("Cancel", this);
-	QPushButton* browse = new QPushButton("Browse..", this);
-	QPushButton* nback = new QPushButton("<< Back", this);
+	admin_email = new QLabel("Admin Email: ", this);
+	password = new QLabel("Password: ", this);
+	choose_dir = new QLabel("Choose Folder: ", this);
+	email_line = new QLineEdit(this);
+	pass_line = new QLineEdit(this);
+	dir_line = new QLineEdit(this);
+	nokay = new QPushButton("Okay", this);
+	ncancel = new QPushButton("Cancel", this);
+	browse = new QPushButton("Browse..", this);
+	nback = new QPushButton("<< Back", this);
 
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
@@ -44,6 +44,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	setLayout(vbox);
 
 	connect(nback, SIGNAL(clicked()), this, SLOT(on_back()));
+	connect(browse, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
@@ -53,6 +54,10 @@ void new_db::on_back() {
 	this->hide();
 }
 
+void new_db::on_browse() {
+	 QString directory_path = QFileDialog::getExistingDirectory(this,tr("Select Folder"), QDir::homePath());
+	 dir_line->insert(directory_path);
+}
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Asitor");
 	this->setWindowIcon(QIcon("asitor.ico"));
