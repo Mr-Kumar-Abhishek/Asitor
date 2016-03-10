@@ -50,15 +50,26 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
     QLineEdit *filepath = new QLineEdit;
 	QLabel *label = new QLabel("Choose database file:", this);
 	
-	QGridLayout * grid = new QGridLayout(this);
+	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(label,0, 0);
 	grid->addWidget(filepath, 0, 1);
-	grid->addWidget(bbutton, 0 ,3);
-	grid->addWidget(nbutton, 1, 1);
+	grid->addWidget(bbutton, 0 ,2);
+	grid->addWidget(nbutton, 0, 3);
+
 	grid->addWidget(obutton, 1, 2);
 	grid->addWidget(qbutton, 1, 3);
 
-	setLayout(grid);
+	QVBoxLayout *vbox = new QVBoxLayout(this);
+	vbox->addSpacing(15);
+	vbox->addLayout(grid);
+
+	QHBoxLayout* hbox = new QHBoxLayout();
+	hbox->addWidget(obutton, 1, Qt::AlignRight);
+	hbox->addWidget(qbutton, 0);
+	vbox->addStretch(1);
+	vbox->addLayout(hbox);
+
+	setLayout(vbox);
 
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(nbutton, SIGNAL(clicked()), this, SLOT(on_new()));
@@ -79,8 +90,8 @@ void choose_db::on_new() {
 int main(int argc, char* argv[]) {
 	
 
-	int width = 250;
-	int height = 150;
+	int width = 550;
+	int height = 120;
 
 	int screen_width;
 	int screen_height;
