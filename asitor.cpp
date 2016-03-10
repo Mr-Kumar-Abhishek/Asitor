@@ -104,7 +104,12 @@ void choose_db::on_okay() {
 		if (!db_file_info->isDir()) {
 			QString db_check = db_file.right(3);
 			if (QString::compare(db_check, ".db", Qt::CaseInsensitive) == 0) {
-				db_messages->setText("Confirmed: Got a database file to check...");
+				qint64 size = db_file_info->size();
+				if(size == 0) {
+					db_messages->setText("something is fishy here .. not a proper database file.");
+				}else{
+					db_messages->setText("Confirmed: Got a database file to check...");
+				}
 			}else {
 				db_messages->setText("Oops ... not a database file to work on...");
 			}
