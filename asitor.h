@@ -28,6 +28,14 @@ class choose_db : public QWidget{
 		void on_okay();
 		void on_browse();
 		void on_new();
+
+	private:
+		QPushButton *qbutton;
+		QPushButton *obutton;
+		QPushButton *bbutton;
+		QPushButton *nbutton;
+		QLineEdit *filepath;
+		QLabel *label;
 };
 
 class new_db : public QWidget {

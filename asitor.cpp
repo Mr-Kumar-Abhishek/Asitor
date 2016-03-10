@@ -62,12 +62,12 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Asitor");
 	this->setWindowIcon(QIcon("asitor.ico"));
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
-	QPushButton *qbutton = new QPushButton("Quit", this);
-	QPushButton *obutton = new QPushButton("Okay", this);
-	QPushButton *bbutton = new QPushButton("Browse..", this);
-	QPushButton *nbutton = new QPushButton("New", this);
-    QLineEdit *filepath = new QLineEdit;
-	QLabel *label = new QLabel("Choose database file:", this);
+	qbutton = new QPushButton("Quit", this);
+	obutton = new QPushButton("Okay", this);
+	bbutton = new QPushButton("Browse..", this);
+	nbutton = new QPushButton("New", this);
+	filepath = new QLineEdit(this);
+	label = new QLabel("Choose database file:", this);
 	
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(label,0, 0);
@@ -98,7 +98,8 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 void choose_db::on_okay() {}
 void choose_db::on_browse() {
-    QString directory = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
+    QString filename = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
+    filepath->insert(filename);
 }
 void choose_db::on_new() {
 	new_db* n_db = new new_db;
