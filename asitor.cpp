@@ -7,10 +7,13 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	QLabel* admin_email = new QLabel("Admin Email: ", this);
 	QLabel* password = new QLabel("Password: ", this);
+	QLabel* choose_dir = new QLabel("Choose Folder: ", this);
 	QLineEdit *email_line = new QLineEdit(this);
 	QLineEdit *pass_line = new QLineEdit(this);
+	QLineEdit *dir_line = new QLineEdit(this);
 	QPushButton* nokay = new QPushButton("Okay", this);
 	QPushButton* ncancel = new QPushButton("Cancel", this);
+	QPushButton* browse = new QPushButton("Browse..", this);
 
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
@@ -20,6 +23,14 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 	vbox->addLayout(grid);
+	vbox->addSpacing(15);
+
+	QGridLayout* grid2 = new QGridLayout();
+
+	grid2->addWidget(choose_dir, 0, 1);
+	grid2->addWidget(dir_line, 0, 2);
+	grid2->addWidget(browse, 0, 3);
+	vbox->addLayout(grid2);
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(nokay, 1, Qt::AlignRight);
