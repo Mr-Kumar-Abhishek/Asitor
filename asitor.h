@@ -16,7 +16,18 @@
 #include <QDir>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QMdiArea>
+#include <QMainWindow>
 
+
+
+class manage_db : public QMainWindow {
+
+	Q_OBJECT
+
+	public:
+		manage_db();
+};
 
 class choose_db : public QWidget{
 

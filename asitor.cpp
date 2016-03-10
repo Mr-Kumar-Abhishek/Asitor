@@ -1,5 +1,9 @@
 #include "asitor.h"
 
+manage_db::manage_db(){
+
+}
+
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));
@@ -105,21 +109,26 @@ void choose_db::on_okay() {
 			QString db_check = db_file.right(3);
 			if (QString::compare(db_check, ".db", Qt::CaseInsensitive) == 0) {
 				qint64 size = db_file_info->size();
-				if(size == 0) {
-					db_messages->setText("something is fishy here .. not a proper database file.");
+				if(size != 0) {
+					manage_db* asitor_main = new manage_db();
+					asitor_main->show();
+					this->hide();
 				}else{
-					db_messages->setText("Confirmed: Got a database file to check...");
+					db_messages->setText("something is fishy here .. not a proper database file.");
+					db_messages->exec();
 				}
 			}else {
 				db_messages->setText("Oops ... not a database file to work on...");
+				db_messages->exec();
 			}
 		}else {
 			db_messages->setText("oops, got a directory instead of a file ..");
+			db_messages->exec();
 		}
 	}else {
 		db_messages->setText("File or folder doesn't exist at the specified location.");
+		db_messages->exec();
 	}
-	db_messages->exec();
 }
 
 void choose_db::on_browse() {
