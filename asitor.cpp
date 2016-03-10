@@ -102,7 +102,12 @@ void choose_db::on_okay() {
 	if(QFile(db_file).exists()) {
 		QFileInfo* db_file_info = new QFileInfo(db_file);
 		if (!db_file_info->isDir()) {
-			db_messages->setText("Confirmed: Got a file to check...");
+			QString db_check = db_file.right(3);
+			if (QString::compare(db_check, ".db", Qt::CaseInsensitive) == 0) {
+				db_messages->setText("Confirmed: Got a database file to check...");
+			}else {
+				db_messages->setText("Oops ... not a database file to work on...");
+			}
 		}else {
 			db_messages->setText("oops, got a directory instead of a file ..");
 		}
