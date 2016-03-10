@@ -65,9 +65,11 @@ class new_db : public QWidget {
 		QLabel* admin_email; 
 		QLabel* password;
 		QLabel* choose_dir;
+		QLabel* give_db_name;
 		QLineEdit *email_line; 
 		QLineEdit *pass_line; 
-		QLineEdit *dir_line; 
+		QLineEdit *dir_line;
+		QLineEdit *db_name_line; 
 		QPushButton* nokay;
 		QPushButton* ncancel; 
 		QPushButton* browse; 

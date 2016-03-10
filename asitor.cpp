@@ -7,14 +7,16 @@ manage_db::manage_db(){
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));
-	this->resize(350,200);
+	this->resize(400,200);
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	admin_email = new QLabel("Admin Email: ", this);
 	password = new QLabel("Password: ", this);
 	choose_dir = new QLabel("Choose Folder: ", this);
+	give_db_name = new QLabel("Database File Name: ");
 	email_line = new QLineEdit(this);
 	pass_line = new QLineEdit(this);
 	dir_line = new QLineEdit(this);
+	db_name_line = new QLineEdit(this);
 	nokay = new QPushButton("Okay", this);
 	ncancel = new QPushButton("Cancel", this);
 	browse = new QPushButton("Browse..", this);
@@ -25,16 +27,18 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	grid->addWidget(email_line, 0, 1);
 	grid->addWidget(password, 1, 0);
 	grid->addWidget(pass_line, 1, 1);
+	grid->addWidget(give_db_name, 2, 0);
+	grid->addWidget(db_name_line, 2, 1);
 
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 	vbox->addLayout(grid);
-	vbox->addSpacing(20);
+	vbox->addSpacing(10);
 
 	QGridLayout* grid2 = new QGridLayout();
 
 	grid2->addWidget(choose_dir, 0, 1);
-	grid2->addWidget(dir_line, 0, 2);
-	grid2->addWidget(browse, 0, 3);
+	grid2->addWidget(browse, 0, 2);
+	grid2->addWidget(dir_line, 0, 3);
 	vbox->addLayout(grid2);
 
 	QHBoxLayout* hbox = new QHBoxLayout();
