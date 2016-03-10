@@ -14,6 +14,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	QPushButton* nokay = new QPushButton("Okay", this);
 	QPushButton* ncancel = new QPushButton("Cancel", this);
 	QPushButton* browse = new QPushButton("Browse..", this);
+	QPushButton* nback = new QPushButton("<< Back", this);
 
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
@@ -23,7 +24,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 	vbox->addLayout(grid);
-	vbox->addSpacing(15);
+	vbox->addSpacing(20);
 
 	QGridLayout* grid2 = new QGridLayout();
 
@@ -33,6 +34,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	vbox->addLayout(grid2);
 
 	QHBoxLayout* hbox = new QHBoxLayout();
+	hbox->addWidget(nback, 2, Qt::AlignLeft);
 	hbox->addWidget(nokay, 1, Qt::AlignRight);
 	hbox->addWidget(ncancel, 0);
 
@@ -41,10 +43,20 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	setLayout(vbox);
 
+	connect(nback, SIGNAL(clicked()), this, SLOT(on_back()));
 	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
+void new_db::on_back() {
+	choose_db* c_db = new choose_db;
+	c_db->show();
+	this->hide();
+}
+
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
+	this->setWindowTitle("Asitor");
+	this->setWindowIcon(QIcon("asitor.ico"));
+	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	QPushButton *qbutton = new QPushButton("Quit", this);
 	QPushButton *obutton = new QPushButton("Okay", this);
 	QPushButton *bbutton = new QPushButton("Browse..", this);
@@ -123,9 +135,6 @@ int main(int argc, char* argv[]) {
 
 	c_db->resize(width, height);
 	c_db->move(x,y);
-	c_db->setWindowTitle("Asitor");
-	c_db->setWindowIcon(QIcon("asitor.ico"));
-	c_db->setWindowFlags(Qt::WindowCloseButtonHint);
 	c_db->show();
 	splash.finish(c_db);
 	return asitor.exec();

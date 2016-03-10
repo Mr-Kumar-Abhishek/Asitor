@@ -35,4 +35,7 @@ class new_db : public QWidget {
 
 	public:
 		new_db(QWidget *parent = 0);
+
+	private slots:
+		void on_back();
 };
