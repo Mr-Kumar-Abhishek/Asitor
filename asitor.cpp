@@ -4,6 +4,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));
 	this->resize(350,200);
+	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	QLabel* admin_email = new QLabel("Admin Email: ", this);
 	QLabel* password = new QLabel("Password: ", this);
 	QLineEdit *email_line = new QLineEdit;
