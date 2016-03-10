@@ -40,6 +40,8 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	vbox->addLayout(hbox);
 
 	setLayout(vbox);
+
+	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
