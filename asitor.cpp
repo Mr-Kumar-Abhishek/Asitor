@@ -7,16 +7,28 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	QLabel* admin_email = new QLabel("Admin Email: ", this);
 	QLabel* password = new QLabel("Password: ", this);
-	QLineEdit *email_line = new QLineEdit;
-	QLineEdit *pass_line = new QLineEdit;
+	QLineEdit *email_line = new QLineEdit(this);
+	QLineEdit *pass_line = new QLineEdit(this);
+	QPushButton* nokay = new QPushButton("Okay", this);
+	QPushButton* ncancel = new QPushButton("Cancel", this);
 
-	QGridLayout *grid = new QGridLayout(this);
+	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
 	grid->addWidget(email_line, 0, 1);
 	grid->addWidget(password, 1, 0);
 	grid->addWidget(pass_line, 1, 1);
 
-	setLayout(grid);
+	QVBoxLayout *vbox = new QVBoxLayout(this);
+	vbox->addLayout(grid);
+
+	QHBoxLayout* hbox = new QHBoxLayout();
+	hbox->addWidget(nokay, 1, Qt::AlignRight);
+	hbox->addWidget(ncancel, 0);
+
+	vbox->addStretch(1);
+	vbox->addLayout(hbox);
+
+	setLayout(vbox);
 }
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
