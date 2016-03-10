@@ -1,7 +1,7 @@
 #include "asitor.h"
 
 manage_db::manage_db(){
-
+	this->setWindowTitle("Asitor");
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
