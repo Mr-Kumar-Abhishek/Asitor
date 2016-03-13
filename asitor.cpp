@@ -53,8 +53,11 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	connect(nback, SIGNAL(clicked()), this, SLOT(on_back()));
 	connect(browse, SIGNAL(clicked()), this, SLOT(on_browse()));
+	connect(nokay, SIGNAL(clicked()), this, SLOT(on_okay()));
 	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
+
+void new_db::on_okay() {}
 
 void new_db::on_back() {
 	choose_db* c_db = new choose_db;

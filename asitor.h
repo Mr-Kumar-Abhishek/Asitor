@@ -60,6 +60,7 @@ class new_db : public QWidget {
 	private slots:
 		void on_back();
 		void on_browse();
+		void on_okay();
 
 	private:
 		QLabel* admin_email; 
