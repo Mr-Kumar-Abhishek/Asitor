@@ -18,7 +18,7 @@
 #include <QMessageBox>
 #include <QMdiArea>
 #include <QMainWindow>
-
+#include <QtSql>
 
 
 class manage_db : public QMainWindow {
