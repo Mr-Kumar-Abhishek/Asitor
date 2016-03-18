@@ -58,13 +58,17 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 }
 
 void new_db::on_okay() {
-
+	QMessageBox* db_messages = new QMessageBox();
+	QDir dir;
 	QString db_dir = dir_line->text();
 	QString db_name = db_name_line->text();
+	if(!QFile(db_dir).exists()) {
+		dir.mkpath(db_dir);
+	}
 	QString db_path = db_dir + "/" + db_name;
 	QString email = email_line->text();
 	QString pass =  pass_line->text();
-	QMessageBox* db_messages = new QMessageBox();
+
 
 	QSqlDatabase* db = new QSqlDatabase();
 
