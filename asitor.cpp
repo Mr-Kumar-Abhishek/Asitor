@@ -66,27 +66,36 @@ void new_db::on_okay() {
 		dir.mkpath(db_dir);
 	}
 	QString db_path = db_dir + "/" + db_name;
-	QString email = email_line->text();
-	QString pass =  pass_line->text();
+	if(!QFile(db_path).exists()){
 
+		QString email = email_line->text();
+		QString pass =  pass_line->text();
+		QSqlDatabase* db = new QSqlDatabase();
 
-	QSqlDatabase* db = new QSqlDatabase();
+		*db = QSqlDatabase::addDatabase("QSQLITE");
 
-	*db = QSqlDatabase::addDatabase("QSQLITE");
-
-	db->setDatabaseName(db_path);
-	if(db->open()){
-		QSqlQuery query("create table user(email text, pass text)");
-		query = "insert into user values( '" + email + "', '" + pass + "' )";
-		if(query.exec()){
-			db_messages->setText("Sucessfully created new database file.");	
+		db->setDatabaseName(db_path);
+		if(db->open()){
+			QSqlQuery query("create table user(email text, pass text)");
+			query = "insert into user values( '" + email + "', '" + pass + "' )";
+			if(query.exec()){
+				db_messages->setText("Sucessfully created new database file.");	
+			}else{
+				db_messages->setText("Error occured while registration.");	
+			}
+			db->close();
 		}else{
-			db_messages->setText("Error occured while registration.");	
+			db_messages->setText("Error occured while creating new database file.");
 		}
-		db->close();
 	}else{
-		db_messages->setText("Error occured while creating new database file.");
+		QFileInfo* db_path_info = new QFileInfo(db_path);
+		if (db_path_info->isDir()) {
+			db_messages->setText("Error: A directory already exists with name of the database file specified.");
+		}else{
+			db_messages->setText("Error: A file already exists with name of the database file specified.");
+		}
 	}
+	
 	db_messages->exec();
 }
 
