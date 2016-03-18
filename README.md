@@ -4,6 +4,8 @@
 
 This is a student information system meant for small coaching institutes to manage their students.
 
+[![Throughput Graph](https://graphs.waffle.io/Mr-Kumar-Abhishek/Asitor/throughput.svg)](https://waffle.io/Mr-Kumar-Abhishek/Asitor/metrics) 
+
 ### What is this repository for? ###
 
 * Quick summary: This repository is for developers to enhance, debug or fork the repository. In a nutshell this is not serious project. However my plays turns out to be serious most of the time later on.
