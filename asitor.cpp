@@ -65,6 +65,10 @@ void new_db::on_okay() {
 	if(!QFile(db_dir).exists()) {
 		dir.mkpath(db_dir);
 	}
+	QString db_check = db_name.right(3);
+	if (QString::compare(db_check, ".db", Qt::CaseInsensitive) != 0) {
+		db_name = db_name + ".db";
+	}
 	QString db_path = db_dir + "/" + db_name;
 	if(!QFile(db_path).exists()){
 
