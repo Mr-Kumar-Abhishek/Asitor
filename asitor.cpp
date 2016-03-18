@@ -71,12 +71,18 @@ void new_db::on_okay() {
 	*db = QSqlDatabase::addDatabase("QSQLITE");
 
 	db->setDatabaseName(db_path);
-	db->open();
-	QSqlQuery query("create table user(email text, pass text)");
-	query = "insert into user values( '" + email + "', '" + pass + "' )";
-	query.exec();
-	db_messages->setText("Sucessfully created new database file.");
-	db->close();
+	if(db->open()){
+		QSqlQuery query("create table user(email text, pass text)");
+		query = "insert into user values( '" + email + "', '" + pass + "' )";
+		if(query.exec()){
+			db_messages->setText("Sucessfully created new database file.");	
+		}else{
+			db_messages->setText("Error occured while registration.");	
+		}
+		db->close();
+	}else{
+		db_messages->setText("Error occured while creating new database file.");
+	}
 	db_messages->exec();
 }
 
