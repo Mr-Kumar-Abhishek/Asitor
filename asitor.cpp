@@ -57,7 +57,28 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
-void new_db::on_okay() {}
+void new_db::on_okay() {
+
+	QString db_dir = dir_line->text();
+	QString db_name = db_name_line->text();
+	QString db_path = db_dir + "/" + db_name;
+	QString email = email_line->text();
+	QString pass =  pass_line->text();
+	QMessageBox* db_messages = new QMessageBox();
+
+	QSqlDatabase* db = new QSqlDatabase();
+
+	*db = QSqlDatabase::addDatabase("QSQLITE");
+
+	db->setDatabaseName(db_path);
+	db->open();
+	QSqlQuery query("create table user(email text, pass text)");
+	query = "insert into user values( '" + email + "', '" + pass + "' )";
+	query.exec();
+	db_messages->setText("Sucessfully created new database file.");
+	db->close();
+	db_messages->exec();
+}
 
 void new_db::on_back() {
 	choose_db* c_db = new choose_db;
@@ -69,6 +90,7 @@ void new_db::on_browse() {
 	 QString directory_path = QFileDialog::getExistingDirectory(this,tr("Select Folder"), QDir::homePath());
 	 dir_line->insert(directory_path);
 }
+
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Asitor");
 	this->setWindowIcon(QIcon("asitor.ico"));
