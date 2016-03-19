@@ -59,6 +59,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 void new_db::on_okay() {
 	QMessageBox* db_messages = new QMessageBox();
+	bool success = true;
 	QDir dir;
 	QString db_dir = dir_line->text();
 	QString db_name = db_name_line->text();
@@ -80,14 +81,15 @@ void new_db::on_okay() {
 
 		db->setDatabaseName(db_path);
 		if(db->open()){
-			QSqlQuery query("create table user(email text, pass text)");
-			query = "insert into user values( '" + email + "', '" + pass + "' )";
-			if(query.exec()){
-				db_messages->setText("Sucessfully created new database file.");	
-			}else{
-				db_messages->setText("Error occured while registration.");	
-			}
+			QSqlQuery query;
+			query.prepare("create table user(email text, pass text)");
+			success = exec_query(query, db_messages, success);
+			query.prepare("insert into user values( '" + email + "', '" + pass + "' )");
+			success = exec_query(query, db_messages, success);
 			db->close();
+			if (success == true){
+				db_messages->setText("Sucessfully created new database file.");	
+			}
 		}else{
 			db_messages->setText("Error occured while creating new database file.");
 		}
@@ -101,6 +103,14 @@ void new_db::on_okay() {
 	}
 	
 	db_messages->exec();
+}
+
+bool new_db::exec_query(QSqlQuery query, QMessageBox* db_messages, bool success) {
+	if(!query.exec()){
+		success = false;
+		db_messages->setText("Error occured while registration.");	
+	}
+	return success;
 }
 
 void new_db::on_back() {

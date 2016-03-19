@@ -75,4 +75,5 @@ class new_db : public QWidget {
 		QPushButton* ncancel; 
 		QPushButton* browse; 
 		QPushButton* nback; 
+		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
 };
