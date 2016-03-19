@@ -1,7 +1,18 @@
 #include "asitor.h"
 
-manage_db::manage_db(){
+manage_db::manage_db(QString data_path){
 	this->setWindowTitle("Asitor");
+	QSqlDatabase* db = new QSqlDatabase();
+	*db = QSqlDatabase::addDatabase("QSQLITE");
+	db->setDatabaseName(data_path);
+	QMessageBox* db_messages = new QMessageBox();
+	if(db->open()){
+		db_messages->setText("Database file opened succesfully");
+		db->close();
+	}else{
+		db_messages->setText("Error occured, couldn't open database file.");
+	}
+	db_messages->exec();
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
@@ -172,7 +183,7 @@ void choose_db::on_okay() {
 			if (QString::compare(db_check, ".db", Qt::CaseInsensitive) == 0) {
 				qint64 size = db_file_info->size();
 				if(size != 0) {
-					manage_db* asitor_main = new manage_db();
+					manage_db* asitor_main = new manage_db(db_file);
 					asitor_main->show();
 					this->hide();
 				}else{
