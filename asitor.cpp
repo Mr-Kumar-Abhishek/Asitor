@@ -198,9 +198,7 @@ void choose_db::on_okay() {
 			if (QString::compare(db_check, ".db", Qt::CaseInsensitive) == 0) {
 				qint64 size = db_file_info->size();
 				if(size != 0) {
-					manage_db* asitor_main = new manage_db(db_file);
-					asitor_main->show();
-					this->hide();
+					check_user(db_file);
 				}else{
 					db_messages->setText("something is fishy here .. not a proper database file.");
 					db_messages->exec();
@@ -215,6 +213,39 @@ void choose_db::on_okay() {
 		}
 	}else {
 		db_messages->setText("File or folder doesn't exist at the specified location.");
+		db_messages->exec();
+	}
+}
+
+void choose_db::check_user(QString db_file){
+	QSqlDatabase* db = new QSqlDatabase();
+	*db = QSqlDatabase::addDatabase("QSQLITE");
+	db->setDatabaseName(db_file);
+	QMessageBox* db_messages = new QMessageBox();
+	QString admin;
+	QString pass;
+	if(db->open()){
+		QSqlQuery query;
+    	QString queryString = "SELECT email, pass FROM user";
+ 		query.exec(queryString);
+ 		while (query.next()) {
+        	QSqlRecord record = query.record();
+        	admin =	record.value(0).toString();
+        	pass  = record.value(1).toString();
+    	}
+    	QString chk_admin = email_line->text();
+    	QString chk_pass =  pass_line->text();
+    	if(QString::compare(chk_admin, admin) == 0 && QString::compare(chk_pass, pass) == 0){
+    		manage_db* asitor_main = new manage_db(db_file);
+			asitor_main->show();
+			this->hide();
+    	}else{
+    		db_messages->setText("Email and/or password is incorrect !");
+    		db_messages->exec();
+    	}
+		db->close();
+	}else{
+		db_messages->setText("Error occured, couldn't open database file.");
 		db_messages->exec();
 	}
 }

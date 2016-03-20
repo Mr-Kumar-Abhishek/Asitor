@@ -54,6 +54,7 @@ class choose_db : public QWidget{
 		QPushButton *nbutton;
 		QLineEdit *filepath;
 		QLabel *label;
+		void check_user(QString db_file);
 };
 
 class new_db : public QWidget {
