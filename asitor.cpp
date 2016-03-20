@@ -139,6 +139,11 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Asitor");
 	this->setWindowIcon(QIcon("asitor.ico"));
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
+	admin_email = new QLabel("Admin Email: ", this);
+	password = new QLabel("Password: ", this);
+	give_db_name = new QLabel("Database File Name: ");
+	email_line = new QLineEdit(this);
+	pass_line = new QLineEdit(this);
 	qbutton = new QPushButton("Quit", this);
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
@@ -146,18 +151,28 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	filepath = new QLineEdit(this);
 	label = new QLabel("Choose database file:", this);
 	
-	QGridLayout* grid = new QGridLayout();
-	grid->addWidget(label,0, 0);
-	grid->addWidget(filepath, 0, 1);
-	grid->addWidget(bbutton, 0 ,2);
-	grid->addWidget(nbutton, 0, 3);
-
-	grid->addWidget(obutton, 1, 2);
-	grid->addWidget(qbutton, 1, 3);
-
 	QVBoxLayout *vbox = new QVBoxLayout(this);
-	vbox->addSpacing(15);
+
+	QGridLayout *grid = new QGridLayout();
+	grid->addWidget(admin_email, 0,0);
+	grid->addWidget(email_line, 0, 1);
+	grid->addWidget(password, 1, 0);
+	grid->addWidget(pass_line, 1, 1);
+
 	vbox->addLayout(grid);
+
+	QGridLayout* grid2 = new QGridLayout();
+	grid2->addWidget(label,0, 0);
+	grid2->addWidget(filepath, 0, 1);
+	grid2->addWidget(bbutton, 0 ,2);
+	grid2->addWidget(nbutton, 0, 3);
+
+	grid2->addWidget(obutton, 1, 2);
+	grid2->addWidget(qbutton, 1, 3);
+
+	
+	//vbox->addSpacing(15);
+	vbox->addLayout(grid2);
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(obutton, 1, Qt::AlignRight);
