@@ -99,21 +99,26 @@ void new_db::on_okay() {
 			success = exec_query(query, db_messages, success);
 			db->close();
 			if (success == true){
-				db_messages->setText("Sucessfully created new database file.");	
+				manage_db* asitor_main = new manage_db(db_path);
+				asitor_main->show();
+				this->hide();	
 			}
 		}else{
 			db_messages->setText("Error occured while creating new database file.");
+			db_messages->exec();
 		}
 	}else{
 		QFileInfo* db_path_info = new QFileInfo(db_path);
 		if (db_path_info->isDir()) {
 			db_messages->setText("Error: A directory already exists with name of the database file specified.");
+			db_messages->exec();
 		}else{
 			db_messages->setText("Error: A file already exists with name of the database file specified.");
+			db_messages->exec();
 		}
 	}
 	
-	db_messages->exec();
+	
 }
 
 bool new_db::exec_query(QSqlQuery query, QMessageBox* db_messages, bool success) {
