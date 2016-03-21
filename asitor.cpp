@@ -26,6 +26,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	give_db_name = new QLabel("Database File Name: ");
 	email_line = new QLineEdit(this);
 	pass_line = new QLineEdit(this);
+	pass_line->setEchoMode(QLineEdit::Password);
 	dir_line = new QLineEdit(this);
 	db_name_line = new QLineEdit(this);
 	nokay = new QPushButton("Okay", this);
@@ -149,6 +150,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	give_db_name = new QLabel("Database File Name: ");
 	email_line = new QLineEdit(this);
 	pass_line = new QLineEdit(this);
+	pass_line->setEchoMode(QLineEdit::Password); 
 	qbutton = new QPushButton("Quit", this);
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
