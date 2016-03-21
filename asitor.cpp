@@ -2,6 +2,10 @@
 
 manage_db::manage_db(QString data_path){
 	this->setWindowTitle("Asitor");
+	QAction *quit = new QAction("&Quit", this);
+	QMenu *db_menu;
+	db_menu = menuBar()->addMenu("&Database");
+	db_menu->addAction(quit);
 	QSqlDatabase* db = new QSqlDatabase();
 	*db = QSqlDatabase::addDatabase("QSQLITE");
 	db->setDatabaseName(data_path);
@@ -13,6 +17,7 @@ manage_db::manage_db(QString data_path){
 		db_messages->setText("Error occured, couldn't open database file.");
 	}
 	db_messages->exec();
+	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {

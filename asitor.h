@@ -19,6 +19,8 @@
 #include <QMdiArea>
 #include <QMainWindow>
 #include <QtSql>
+#include <QMenu>
+#include <QMenuBar>
 
 
 class manage_db : public QMainWindow {
