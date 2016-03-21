@@ -5,6 +5,8 @@ manage_db::manage_db(QString data_path){
 	QAction *quit = new QAction("&Quit", this);
 	QAction *newdb = new QAction("&New", this);
 	QAction *opendb = new QAction("&Open", this);
+	QAction *about = new QAction("&About", this);
+	QAction *license = new QAction("&License", this);
 	quit->setShortcut(tr("CTRL+Q"));
 	QMenu *db_menu;
 	db_menu = menuBar()->addMenu("&Database");
@@ -12,6 +14,10 @@ manage_db::manage_db(QString data_path){
 	db_menu->addAction(opendb);
 	db_menu->addSeparator();
 	db_menu->addAction(quit);
+	QMenu *help_menu;
+	help_menu =  menuBar()->addMenu("&Help");
+	help_menu->addAction(about);
+	help_menu->addAction(license);
 	mdiSpace = new QMdiArea;
 	mdiSpace->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	mdiSpace->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
