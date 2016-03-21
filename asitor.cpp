@@ -12,6 +12,10 @@ manage_db::manage_db(QString data_path){
 	db_menu->addAction(opendb);
 	db_menu->addSeparator();
 	db_menu->addAction(quit);
+	mdiSpace = new QMdiArea;
+	mdiSpace->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	mdiSpace->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+	setCentralWidget(mdiSpace);
 	QSqlDatabase* db = new QSqlDatabase();
 	*db = QSqlDatabase::addDatabase("QSQLITE");
 	db->setDatabaseName(data_path);

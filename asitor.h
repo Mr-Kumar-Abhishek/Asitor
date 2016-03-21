@@ -29,6 +29,9 @@ class manage_db : public QMainWindow {
 
 	public:
 		manage_db(QString data_path);
+
+	private:
+		QMdiArea *mdiSpace;
 };
 
 class choose_db : public QWidget{
