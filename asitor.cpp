@@ -3,6 +3,7 @@
 manage_db::manage_db(QString data_path){
 	this->setWindowTitle("Asitor");
 	QAction *quit = new QAction("&Quit", this);
+	quit->setShortcut(tr("CTRL+Q"));
 	QMenu *db_menu;
 	db_menu = menuBar()->addMenu("&Database");
 	db_menu->addAction(quit);
