@@ -23,7 +23,7 @@ manage_db::manage_db(){
 	mdiSpace->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	mdiSpace->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	setCentralWidget(mdiSpace);
-	QSqlDatabase* db = new QSqlDatabase();
+/*	QSqlDatabase* db = new QSqlDatabase();
 	*db = QSqlDatabase::addDatabase("QSQLITE");
 	db->setDatabaseName(data_path);
 	QMessageBox* db_messages = new QMessageBox();
@@ -33,7 +33,7 @@ manage_db::manage_db(){
 	}else{
 		db_messages->setText("Error occured, couldn't open database file.");
 	}
-	db_messages->exec();
+	db_messages->exec(); */
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 }
 
