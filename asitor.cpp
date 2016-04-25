@@ -293,8 +293,8 @@ void choose_db::on_new() {
 int main(int argc, char* argv[]) {
 	
 
-	int width = 550;
-	int height = 120;
+	int width = 800;
+	int height = 600;
 
 	int screen_width;
 	int screen_height;
