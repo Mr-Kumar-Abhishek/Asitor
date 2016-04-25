@@ -166,6 +166,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Asitor");
 	this->setWindowIcon(QIcon("asitor.ico"));
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
+	this->resize(550,120);
 	admin_email = new QLabel("Admin Email: ", this);
 	password = new QLabel("Password: ", this);
 	give_db_name = new QLabel("Database File Name: ");
