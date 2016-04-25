@@ -3,12 +3,9 @@
 manage_db::manage_db(){
 	QString data_path;
 	this->setWindowTitle("Asitor");
-	QAction *quit = new QAction("&Quit", this);
-	QAction *newdb = new QAction("&New", this);
-	QAction *opendb = new QAction("&Open", this);
-	QAction *about = new QAction("&About", this);
-	QAction *license = new QAction("&License", this);
-	quit->setShortcut(tr("CTRL+Q"));
+	
+	make_actions();
+
 	QMenu *db_menu;
 	db_menu = menuBar()->addMenu("&Database");
 	db_menu->addAction(newdb);
@@ -34,9 +31,23 @@ manage_db::manage_db(){
 		db_messages->setText("Error occured, couldn't open database file.");
 	}
 	db_messages->exec(); */
-	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 }
 
+void manage_db::make_actions () {
+	newdb = new QAction("&New", this);
+
+	opendb = new QAction("&Open", this);
+
+	quit = new QAction("&Quit", this);
+	quit->setShortcut(tr("CTRL+Q"));
+	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+	about = new QAction("&About", this);
+
+	license = new QAction("&License", this);
+
+
+}
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));

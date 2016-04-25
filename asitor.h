@@ -31,8 +31,16 @@ class manage_db : public QMainWindow {
 		manage_db();
 
 	private:
+
+		void make_actions();
+		
 		QMdiArea *mdiSpace;
 		QString data_path;
+		QAction *newdb;
+		QAction *opendb;
+		QAction *quit;
+		QAction *about;
+		QAction *license;
 };
 
 class choose_db : public QWidget{
