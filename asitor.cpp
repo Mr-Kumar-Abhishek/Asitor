@@ -1,6 +1,7 @@
 #include "asitor.h"
 
-manage_db::manage_db(QString data_path){
+manage_db::manage_db(){
+	QString data_path;
 	this->setWindowTitle("Asitor");
 	QAction *quit = new QAction("&Quit", this);
 	QAction *newdb = new QAction("&New", this);
@@ -121,7 +122,7 @@ void new_db::on_okay() {
 			success = exec_query(query, db_messages, success);
 			db->close();
 			if (success == true){
-				manage_db* asitor_main = new manage_db(db_path);
+				manage_db* asitor_main = new manage_db();
 				asitor_main->show();
 				this->hide();	
 			}
@@ -265,7 +266,7 @@ void choose_db::check_user(QString db_file){
     	QString chk_admin = email_line->text();
     	QString chk_pass =  pass_line->text();
     	if(QString::compare(chk_admin, admin) == 0 && QString::compare(chk_pass, pass) == 0){
-    		manage_db* asitor_main = new manage_db(db_file);
+    		manage_db* asitor_main = new manage_db();
 			asitor_main->show();
 			this->hide();
     	}else{
@@ -309,7 +310,7 @@ int main(int argc, char* argv[]) {
 	splash.show();
 	asitor.processEvents();
 
-	choose_db* c_db = new choose_db; // choose_db widget to select database
+	manage_db* m_db = new manage_db; // choose_db widget to select database
 
 	QDesktopWidget *our_desktop = QApplication::desktop(); // taking desktop as a desktop widget
 
@@ -321,9 +322,9 @@ int main(int argc, char* argv[]) {
 	y = (screen_height - height ) / 2;
 	x = (screen_width - width ) / 2; 
 
-	c_db->resize(width, height);
-	c_db->move(x,y);
-	c_db->show();
-	splash.finish(c_db);
+	m_db->resize(width, height);
+	m_db->move(x,y);
+	m_db->show();
+	splash.finish(m_db);
 	return asitor.exec();
 }

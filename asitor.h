@@ -28,10 +28,11 @@ class manage_db : public QMainWindow {
 	Q_OBJECT
 
 	public:
-		manage_db(QString data_path);
+		manage_db();
 
 	private:
 		QMdiArea *mdiSpace;
+		QString data_path;
 };
 
 class choose_db : public QWidget{
