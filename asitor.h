@@ -21,6 +21,7 @@
 #include <QtSql>
 #include <QMenu>
 #include <QMenuBar>
+#include <QStatusBar>
 
 
 class manage_db : public QMainWindow {
@@ -34,6 +35,7 @@ class manage_db : public QMainWindow {
 
 		void make_actions();
 		void make_menus();
+		void make_status_bar();
 		
 		QMdiArea *mdiSpace;
 		QString data_path;

@@ -6,6 +6,7 @@ manage_db::manage_db(){
 	
 	make_actions();
 	make_menus();
+	make_status_bar();
 
 	mdiSpace = new QMdiArea;
 	mdiSpace->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -57,6 +58,10 @@ void manage_db::make_menus () {
 	help_menu->addAction(license);
 	help_menu->addAction(aboutQT);
 
+}
+
+void manage_db::make_status_bar() {
+	statusBar()->showMessage(tr("Ready"));
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
