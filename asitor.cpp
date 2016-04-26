@@ -5,17 +5,8 @@ manage_db::manage_db(){
 	this->setWindowTitle("Asitor");
 	
 	make_actions();
+	make_menus();
 
-	QMenu *db_menu;
-	db_menu = menuBar()->addMenu("&Database");
-	db_menu->addAction(newdb);
-	db_menu->addAction(opendb);
-	db_menu->addSeparator();
-	db_menu->addAction(quit);
-	QMenu *help_menu;
-	help_menu =  menuBar()->addMenu("&Help");
-	help_menu->addAction(about);
-	help_menu->addAction(license);
 	mdiSpace = new QMdiArea;
 	mdiSpace->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	mdiSpace->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -34,6 +25,7 @@ manage_db::manage_db(){
 }
 
 void manage_db::make_actions () {
+	
 	newdb = new QAction("&New", this);
 
 	opendb = new QAction("&Open", this);
@@ -45,9 +37,21 @@ void manage_db::make_actions () {
 	about = new QAction("&About", this);
 
 	license = new QAction("&License", this);
+}
 
+void manage_db::make_menus () {
+	
+	db_menu = menuBar()->addMenu("&Database");
+	db_menu->addAction(newdb);
+	db_menu->addAction(opendb);
+	db_menu->addSeparator();
+	db_menu->addAction(quit);
+	help_menu =  menuBar()->addMenu("&Help");
+	help_menu->addAction(about);
+	help_menu->addAction(license);
 
 }
+
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
 	this->setWindowIcon(QIcon("asitor.ico"));

@@ -33,6 +33,7 @@ class manage_db : public QMainWindow {
 	private:
 
 		void make_actions();
+		void make_menus();
 		
 		QMdiArea *mdiSpace;
 		QString data_path;
@@ -41,6 +42,8 @@ class manage_db : public QMainWindow {
 		QAction *quit;
 		QAction *about;
 		QAction *license;
+		QMenu *db_menu;
+		QMenu *help_menu;
 };
 
 class choose_db : public QWidget{
