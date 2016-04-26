@@ -34,6 +34,7 @@ class manage_db : public QMainWindow {
 	private slots:
 
 		void on_new_db();
+		void on_open_db();
 		
 	private:
 

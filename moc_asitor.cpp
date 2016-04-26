@@ -22,7 +22,7 @@ static const uint qt_meta_data_manage_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -31,12 +31,13 @@ static const uint qt_meta_data_manage_db[] = {
 
  // slots: signature, parameters, type, tag, flags
       11,   10,   10,   10, 0x08,
+      23,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_manage_db[] = {
-    "manage_db\0\0on_new_db()\0"
+    "manage_db\0\0on_new_db()\0on_open_db()\0"
 };
 
 void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,6 +47,7 @@ void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         manage_db *_t = static_cast<manage_db *>(_o);
         switch (_id) {
         case 0: _t->on_new_db(); break;
+        case 1: _t->on_open_db(); break;
         default: ;
         }
     }
@@ -84,9 +86,9 @@ int manage_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

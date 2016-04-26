@@ -31,6 +31,7 @@ void manage_db::make_actions () {
 	connect(newdb, SIGNAL(triggered()), this, SLOT(on_new_db()));
 
 	opendb = new QAction("&Open", this);
+	connect(opendb, SIGNAL(triggered()), this, SLOT(on_open_db()));
 
 	closedb = new QAction("&Close", this);
 
@@ -69,6 +70,12 @@ void manage_db::on_new_db(){
 	new_db* n_db =  new new_db();
 	mdiSpace->addSubWindow(n_db);
 	n_db->show();
+}
+
+void manage_db::on_open_db() {
+	choose_db* c_db = new choose_db();
+	mdiSpace->addSubWindow(c_db);
+	c_db->show();
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
