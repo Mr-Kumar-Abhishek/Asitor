@@ -30,6 +30,8 @@ void manage_db::make_actions () {
 
 	opendb = new QAction("&Open", this);
 
+	closedb = new QAction("&Close", this);
+
 	quit = new QAction("&Quit", this);
 	quit->setShortcut(tr("CTRL+Q"));
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
@@ -44,6 +46,7 @@ void manage_db::make_menus () {
 	db_menu = menuBar()->addMenu("&Database");
 	db_menu->addAction(newdb);
 	db_menu->addAction(opendb);
+	db_menu->addAction(closedb);
 	db_menu->addSeparator();
 	db_menu->addAction(quit);
 	help_menu =  menuBar()->addMenu("&Help");

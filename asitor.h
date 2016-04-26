@@ -39,6 +39,7 @@ class manage_db : public QMainWindow {
 		QString data_path;
 		QAction *newdb;
 		QAction *opendb;
+		QAction *closedb;
 		QAction *quit;
 		QAction *about;
 		QAction *license;
