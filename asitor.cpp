@@ -209,7 +209,6 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	qbutton = new QPushButton("Quit", this);
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
-	nbutton = new QPushButton("New", this);
 	filepath = new QLineEdit(this);
 	label = new QLabel("Choose database file:", this);
 	
@@ -223,14 +222,11 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	vbox->addLayout(grid);
 
+	
 	QGridLayout* grid2 = new QGridLayout();
 	grid2->addWidget(label,0, 0);
 	grid2->addWidget(filepath, 0, 1);
 	grid2->addWidget(bbutton, 0 ,2);
-	grid2->addWidget(nbutton, 0, 3);
-
-	grid2->addWidget(obutton, 1, 2);
-	grid2->addWidget(qbutton, 1, 3);
 
 	
 	//vbox->addSpacing(15);
@@ -245,7 +241,6 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	setLayout(vbox);
 
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
-	connect(nbutton, SIGNAL(clicked()), this, SLOT(on_new()));
 	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
 	connect(qbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
@@ -316,11 +311,7 @@ void choose_db::on_browse() {
     QString filename = QFileDialog::getOpenFileName(this,tr("Find Database Files"), QDir::homePath(), tr("Database files (*.db)"));
     filepath->insert(filename);
 }
-void choose_db::on_new() {
-	new_db* n_db = new new_db;
-	n_db->show();
-	this->hide();
-}
+
 
 int main(int argc, char* argv[]) {
 	
