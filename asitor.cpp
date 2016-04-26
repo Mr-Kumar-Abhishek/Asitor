@@ -88,7 +88,6 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	nokay = new QPushButton("Okay", this);
 	ncancel = new QPushButton("Cancel", this);
 	browse = new QPushButton("Browse..", this);
-	nback = new QPushButton("<< Back", this);
 
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
@@ -110,7 +109,6 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	vbox->addLayout(grid2);
 
 	QHBoxLayout* hbox = new QHBoxLayout();
-	hbox->addWidget(nback, 2, Qt::AlignLeft);
 	hbox->addWidget(nokay, 1, Qt::AlignRight);
 	hbox->addWidget(ncancel, 0);
 
@@ -119,7 +117,6 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	setLayout(vbox);
 
-	connect(nback, SIGNAL(clicked()), this, SLOT(on_back()));
 	connect(browse, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(nokay, SIGNAL(clicked()), this, SLOT(on_okay()));
 	connect(ncancel, SIGNAL(clicked()), qApp, SLOT(quit()));
@@ -184,12 +181,6 @@ bool new_db::exec_query(QSqlQuery query, QMessageBox* db_messages, bool success)
 		db_messages->setText("Error occured while registration.");	
 	}
 	return success;
-}
-
-void new_db::on_back() {
-	choose_db* c_db = new choose_db;
-	c_db->show();
-	this->hide();
 }
 
 void new_db::on_browse() {

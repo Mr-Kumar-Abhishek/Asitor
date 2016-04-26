@@ -90,7 +90,6 @@ class new_db : public QWidget {
 		new_db(QWidget *parent = 0);
 
 	private slots:
-		void on_back();
 		void on_browse();
 		void on_okay();
 
@@ -106,6 +105,5 @@ class new_db : public QWidget {
 		QPushButton* nokay;
 		QPushButton* ncancel; 
 		QPushButton* browse; 
-		QPushButton* nback; 
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
 };
