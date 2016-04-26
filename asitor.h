@@ -43,6 +43,7 @@ class manage_db : public QMainWindow {
 		QAction *quit;
 		QAction *about;
 		QAction *license;
+		QAction *aboutQT;
 		QMenu *db_menu;
 		QMenu *help_menu;
 };

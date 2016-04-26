@@ -39,6 +39,9 @@ void manage_db::make_actions () {
 	about = new QAction("&About", this);
 
 	license = new QAction("&License", this);
+
+	aboutQT = new QAction("About QT", this);
+	connect(aboutQT, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
 void manage_db::make_menus () {
@@ -52,6 +55,7 @@ void manage_db::make_menus () {
 	help_menu =  menuBar()->addMenu("&Help");
 	help_menu->addAction(about);
 	help_menu->addAction(license);
+	help_menu->addAction(aboutQT);
 
 }
 
