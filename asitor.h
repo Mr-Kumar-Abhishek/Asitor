@@ -31,6 +31,10 @@ class manage_db : public QMainWindow {
 	public:
 		manage_db();
 
+	private slots:
+
+		void on_new_db();
+		
 	private:
 
 		void make_actions();

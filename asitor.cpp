@@ -28,6 +28,7 @@ manage_db::manage_db(){
 void manage_db::make_actions () {
 	
 	newdb = new QAction("&New", this);
+	connect(newdb, SIGNAL(triggered()), this, SLOT(on_new_db()));
 
 	opendb = new QAction("&Open", this);
 
@@ -62,6 +63,12 @@ void manage_db::make_menus () {
 
 void manage_db::make_status_bar() {
 	statusBar()->showMessage(tr("Ready"));
+}
+
+void manage_db::on_new_db(){
+	new_db* n_db =  new new_db();
+	mdiSpace->addSubWindow(n_db);
+	n_db->show();
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
