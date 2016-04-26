@@ -3,6 +3,7 @@
 manage_db::manage_db(){
 	QString data_path;
 	this->setWindowTitle("Asitor");
+	this->setWindowIcon(QIcon("asitor.ico"));
 	
 	make_actions();
 	make_menus();
@@ -67,7 +68,7 @@ void manage_db::make_status_bar() {
 }
 
 void manage_db::on_new_db(){
-	new_db* n_db =  new new_db();
+	new_db* n_db =  new new_db(this);
 	mdiSpace->addSubWindow(n_db);
 	n_db->show();
 }
@@ -80,7 +81,6 @@ void manage_db::on_open_db() {
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("New Database");
-	this->setWindowIcon(QIcon("asitor.ico"));
 	this->resize(400,200);
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	admin_email = new QLabel("Admin Email: ", this);
