@@ -30,23 +30,30 @@ void manage_db::make_actions () {
 	
 	newdb = new QAction("&New", this);
 	newdb->setShortcut(tr("CTRL+N"));
+	newdb->setStatusTip(tr("Create New Database File"));
 	connect(newdb, SIGNAL(triggered()), this, SLOT(on_new_db()));
 
 	opendb = new QAction("&Open", this);
 	opendb->setShortcut(tr("CTRL+O"));
+	opendb->setStatusTip(tr("Open Database File."));
 	connect(opendb, SIGNAL(triggered()), this, SLOT(on_open_db()));
 
 	closedb = new QAction("&Close", this);
+	closedb->setStatusTip(tr("Close Database File"));
 
 	quit = new QAction("&Quit", this);
 	quit->setShortcut(tr("CTRL+Q"));
+	quit->setStatusTip(tr("Quit Asitor ?"));
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 	about = new QAction("&About", this);
+	about->setStatusTip(tr("About Asitor."));
 
 	license = new QAction("&License", this);
+	license->setStatusTip(tr("Asitor's License"));
 
 	aboutQT = new QAction("About QT", this);
+	aboutQT->setStatusTip(tr("About QT Library."));
 	connect(aboutQT, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
