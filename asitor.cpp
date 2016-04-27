@@ -33,6 +33,7 @@ void manage_db::make_actions () {
 	connect(newdb, SIGNAL(triggered()), this, SLOT(on_new_db()));
 
 	opendb = new QAction("&Open", this);
+	opendb->setShortcut(tr("CTRL+O"));
 	connect(opendb, SIGNAL(triggered()), this, SLOT(on_open_db()));
 
 	closedb = new QAction("&Close", this);
