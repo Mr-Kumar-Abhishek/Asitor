@@ -102,7 +102,6 @@ class new_db : public QWidget {
 		QLineEdit *dir_line;
 		QLineEdit *db_name_line; 
 		QPushButton* nokay;
-		QPushButton* ncancel; 
 		QPushButton* browse; 
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
 };
