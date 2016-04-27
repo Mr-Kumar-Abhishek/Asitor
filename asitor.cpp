@@ -207,7 +207,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
 	filepath = new QLineEdit(this);
-	label = new QLabel("Database File:", this);
+	open_db_file = new QLabel("Database File:", this);
 	
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 
@@ -221,7 +221,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	
 	QGridLayout* grid2 = new QGridLayout();
-	grid2->addWidget(label,0, 0);
+	grid2->addWidget(open_db_file,0, 0);
 	grid2->addWidget(filepath, 0, 1);
 	grid2->addWidget(bbutton, 0 ,2);
 

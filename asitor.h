@@ -75,7 +75,7 @@ class choose_db : public QWidget{
 		QPushButton *obutton;
 		QPushButton *bbutton;
 		QLineEdit *filepath;
-		QLabel *label;
+		QLabel *open_db_file;
 		void check_user(QString db_file);
 };
 
