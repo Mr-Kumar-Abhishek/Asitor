@@ -196,7 +196,6 @@ void new_db::on_browse() {
 
 choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	this->setWindowTitle("Open Database Connection");
-	this->setWindowIcon(QIcon("asitor.ico"));
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	this->resize(550,120);
 	admin_email = new QLabel("Admin Email: ", this);
