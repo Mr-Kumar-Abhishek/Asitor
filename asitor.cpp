@@ -41,6 +41,9 @@ void manage_db::make_actions () {
 	closedb = new QAction("&Close", this);
 	closedb->setStatusTip(tr("Close Database File"));
 
+	switcher = new QAction("Switch Layout Direction", this);
+	connect(switcher, SIGNAL(triggered()), this, SLOT(switchingLayout()));
+
 	quit = new QAction("&Quit", this);
 	quit->setShortcut(tr("CTRL+Q"));
 	quit->setStatusTip(tr("Quit Asitor ?"));
@@ -64,6 +67,7 @@ void manage_db::make_menus () {
 	db_menu->addAction(opendb);
 	db_menu->addAction(closedb);
 	db_menu->addSeparator();
+	db_menu->addAction(switcher);
 	db_menu->addAction(quit);
 	help_menu =  menuBar()->addMenu("&Help");
 	help_menu->addAction(about);
@@ -86,6 +90,22 @@ void manage_db::on_open_db() {
 	choose_db* c_db = new choose_db();
 	mdiSpace->addSubWindow(c_db);
 	c_db->show();
+}
+
+void manage_db::switchingLayout(){
+	if(layoutDirection() == Qt::LeftToRight) {
+		setStatusTip(tr("Switching Layout: From Right To Left."));
+		qApp->setLayoutDirection(Qt::RightToLeft);
+		setStatusTip(tr("Switched Layout: From Right To Left."));
+	}else if (layoutDirection() == Qt::RightToLeft) {
+		setStatusTip(tr("Switching Layout: From Left To Right."));
+		qApp->setLayoutDirection(Qt::LeftToRight);
+		setStatusTip(tr("Switched Layout: From Left To Right."));
+	}else {
+		QMessageBox* layoutERR = new QMessageBox();
+		layoutERR->setText("Something went wrong while switching the layout ! :( ");
+		layoutERR->exec();
+	}
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {

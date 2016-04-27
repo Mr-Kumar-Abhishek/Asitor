@@ -35,6 +35,7 @@ class manage_db : public QMainWindow {
 
 		void on_new_db();
 		void on_open_db();
+		void switchingLayout();
 		
 	private:
 
@@ -47,6 +48,7 @@ class manage_db : public QMainWindow {
 		QAction *newdb;
 		QAction *opendb;
 		QAction *closedb;
+		QAction *switcher;
 		QAction *quit;
 		QAction *about;
 		QAction *license;
