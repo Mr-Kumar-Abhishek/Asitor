@@ -51,6 +51,7 @@ void manage_db::make_actions () {
 
 	about = new QAction("&About", this);
 	about->setStatusTip(tr("About Asitor."));
+	connect(about, SIGNAL(triggered()), this, SLOT(on_about()));
 
 	license = new QAction("&License", this);
 	license->setStatusTip(tr("Asitor's License"));
@@ -106,6 +107,12 @@ void manage_db::switchingLayout(){
 		layoutERR->setText("Something went wrong while switching the layout ! :( ");
 		layoutERR->exec();
 	}
+}
+
+void manage_db::on_about(){
+	about_app* a_win = new about_app(this);
+	mdiSpace->addSubWindow(a_win);
+	a_win->show();
 }
 
 new_db::new_db(QWidget *parent):QWidget(parent) {
@@ -333,6 +340,14 @@ void choose_db::on_browse() {
     filepath->insert(filename);
 }
 
+
+about_app::about_app(QWidget *parent):QWidget(parent) {
+	this->setWindowTitle("About Asitor");
+	QVBoxLayout* vbox = new QVBoxLayout(this);
+	about_text = new QLabel("Asitor is an open-source, cross-platform, student information management system.", this);
+	vbox->addWidget(about_text);
+	setLayout(vbox);
+}
 
 int main(int argc, char* argv[]) {
 	

@@ -36,6 +36,7 @@ class manage_db : public QMainWindow {
 		void on_new_db();
 		void on_open_db();
 		void switchingLayout();
+		void on_about();
 		
 	private:
 
@@ -104,4 +105,16 @@ class new_db : public QWidget {
 		QPushButton* nokay;
 		QPushButton* browse; 
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
+};
+
+class about_app : public QWidget {
+
+	Q_OBJECT
+
+	public:
+		about_app(QWidget *parent = 0);
+
+	private:
+		QLabel* about_text;
+		QPushButton* about_ok;
 };

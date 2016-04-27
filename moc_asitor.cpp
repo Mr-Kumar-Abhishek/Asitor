@@ -22,7 +22,7 @@ static const uint qt_meta_data_manage_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,13 +33,14 @@ static const uint qt_meta_data_manage_db[] = {
       11,   10,   10,   10, 0x08,
       23,   10,   10,   10, 0x08,
       36,   10,   10,   10, 0x08,
+      54,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_manage_db[] = {
     "manage_db\0\0on_new_db()\0on_open_db()\0"
-    "switchingLayout()\0"
+    "switchingLayout()\0on_about()\0"
 };
 
 void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,6 +52,7 @@ void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->on_new_db(); break;
         case 1: _t->on_open_db(); break;
         case 2: _t->switchingLayout(); break;
+        case 3: _t->on_about(); break;
         default: ;
         }
     }
@@ -89,9 +91,9 @@ int manage_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
@@ -245,6 +247,67 @@ int new_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 2;
     }
+    return _id;
+}
+static const uint qt_meta_data_about_app[] = {
+
+ // content:
+       6,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_about_app[] = {
+    "about_app\0"
+};
+
+void about_app::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
+    Q_UNUSED(_a);
+}
+
+const QMetaObjectExtraData about_app::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
+const QMetaObject about_app::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_about_app,
+      qt_meta_data_about_app, &staticMetaObjectExtraData }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &about_app::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *about_app::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *about_app::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_about_app))
+        return static_cast<void*>(const_cast< about_app*>(this));
+    return QWidget::qt_metacast(_clname);
+}
+
+int about_app::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
     return _id;
 }
 QT_END_MOC_NAMESPACE
