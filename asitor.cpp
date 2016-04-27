@@ -205,7 +205,6 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	email_line = new QLineEdit(this);
 	pass_line = new QLineEdit(this);
 	pass_line->setEchoMode(QLineEdit::Password); 
-	qbutton = new QPushButton("Quit", this);
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
 	filepath = new QLineEdit(this);
@@ -233,7 +232,6 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(obutton, 1, Qt::AlignRight);
-	hbox->addWidget(qbutton, 0);
 	vbox->addStretch(1);
 	vbox->addLayout(hbox);
 
@@ -241,7 +239,6 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
-	connect(qbutton, SIGNAL(clicked()), qApp, SLOT(quit()));
 }
 
 void choose_db::on_okay() {

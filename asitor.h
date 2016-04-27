@@ -73,7 +73,6 @@ class choose_db : public QWidget{
 		QLabel* give_db_name;
 		QLineEdit *email_line; 
 		QLineEdit *pass_line;
-		QPushButton *qbutton;
 		QPushButton *obutton;
 		QPushButton *bbutton;
 		QLineEdit *filepath;
