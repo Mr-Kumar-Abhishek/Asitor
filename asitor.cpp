@@ -208,7 +208,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
 	filepath = new QLineEdit(this);
-	label = new QLabel("Choose database file:", this);
+	label = new QLabel("Database File:", this);
 	
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 
