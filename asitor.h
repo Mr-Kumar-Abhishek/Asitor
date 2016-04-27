@@ -70,7 +70,6 @@ class choose_db : public QWidget{
 		QLabel* admin_email; 
 		QLabel* password;
 		QLabel* choose_dir;
-		QLabel* give_db_name;
 		QLineEdit *email_line; 
 		QLineEdit *pass_line;
 		QPushButton *obutton;
