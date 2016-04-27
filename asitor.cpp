@@ -29,6 +29,7 @@ manage_db::manage_db(){
 void manage_db::make_actions () {
 	
 	newdb = new QAction("&New", this);
+	newdb->setShortcut(tr("CTRL+N"));
 	connect(newdb, SIGNAL(triggered()), this, SLOT(on_new_db()));
 
 	opendb = new QAction("&Open", this);
