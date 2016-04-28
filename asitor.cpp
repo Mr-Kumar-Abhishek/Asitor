@@ -193,9 +193,13 @@ void new_db::on_okay() {
 			success = exec_query(query, db_messages, success);
 			db->close();
 			if (success == true){
+				db_messages->setText("Database was succesfully created.");
+				db_messages->exec();
+			 /*
 				manage_db* asitor_main = new manage_db();
 				asitor_main->show();
 				this->hide();	
+			 */
 			}
 		}else{
 			db_messages->setText("Error occured while creating new database file.");
