@@ -325,9 +325,12 @@ void choose_db::check_user(QString db_file){
     	QString chk_admin = email_line->text();
     	QString chk_pass =  pass_line->text();
     	if(QString::compare(chk_admin, admin) == 0 && QString::compare(chk_pass, pass) == 0){
+    		db_messages->setText("Succesfully logged into the database.");
+    		db_messages->exec();
+    	/*	
     		manage_db* asitor_main = new manage_db();
 			asitor_main->show();
-			this->hide();
+			this->hide(); */
     	}else{
     		db_messages->setText("Email and/or password is incorrect !");
     		db_messages->exec();
