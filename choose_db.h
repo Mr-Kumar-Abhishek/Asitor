@@ -7,8 +7,10 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QtSql>
+#include <QSqlQuery>
 #include <QDir>
 #include <QMessageBox>
+#include <QDialog>
 #include <QFileDialog>
 
 class choose_db : public QWidget{
