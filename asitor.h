@@ -23,7 +23,6 @@
 #include <QMenuBar>
 #include <QStatusBar>
 
-
 class manage_db : public QMainWindow {
 
 	Q_OBJECT
@@ -109,19 +108,4 @@ class new_db : public QWidget {
 		QPushButton* ncancel;
 		QPushButton* browse; 
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
-};
-
-class about_app : public QWidget {
-
-	Q_OBJECT
-
-	public:
-		about_app(QWidget *parent = 0);
-
-	private slots:
-		void on_okay();
-
-	private:
-		QLabel* about_text;
-		QPushButton* about_ok;
 };
