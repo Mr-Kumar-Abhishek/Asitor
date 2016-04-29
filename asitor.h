@@ -92,6 +92,7 @@ class new_db : public QWidget {
 	private slots:
 		void on_browse();
 		void on_okay();
+		void on_cancel();
 
 	private:
 		QLabel* admin_email; 
@@ -103,6 +104,7 @@ class new_db : public QWidget {
 		QLineEdit *dir_line;
 		QLineEdit *db_name_line; 
 		QPushButton* nokay;
+		QPushButton* ncancel;
 		QPushButton* browse; 
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
 };

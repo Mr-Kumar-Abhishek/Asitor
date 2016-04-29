@@ -179,7 +179,7 @@ static const uint qt_meta_data_new_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -189,12 +189,13 @@ static const uint qt_meta_data_new_db[] = {
  // slots: signature, parameters, type, tag, flags
        8,    7,    7,    7, 0x08,
       20,    7,    7,    7, 0x08,
+      30,    7,    7,    7, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_new_db[] = {
-    "new_db\0\0on_browse()\0on_okay()\0"
+    "new_db\0\0on_browse()\0on_okay()\0on_cancel()\0"
 };
 
 void new_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -205,6 +206,7 @@ void new_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->on_browse(); break;
         case 1: _t->on_okay(); break;
+        case 2: _t->on_cancel(); break;
         default: ;
         }
     }
@@ -243,9 +245,9 @@ int new_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

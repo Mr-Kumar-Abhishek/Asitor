@@ -129,6 +129,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 	dir_line = new QLineEdit(this);
 	db_name_line = new QLineEdit(this);
 	nokay = new QPushButton("Okay", this);
+	ncancel = new QPushButton("Cancel", this);
 	browse = new QPushButton("Browse..", this);
 
 	QGridLayout* grid = new QGridLayout();
@@ -152,6 +153,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(nokay, 1, Qt::AlignRight);
+	hbox->addWidget(ncancel, 0);
 
 	vbox->addStretch(1);
 	vbox->addLayout(hbox);
@@ -160,7 +162,13 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	connect(browse, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(nokay, SIGNAL(clicked()), this, SLOT(on_okay()));
+	connect(ncancel, SIGNAL(clicked()), this, SLOT(on_cancel()));
 }
+
+void new_db::on_cancel() {
+	this->parentWidget()->close();
+}
+
 
 void new_db::on_okay() {
 	QMessageBox* db_messages = new QMessageBox();
