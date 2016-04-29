@@ -68,6 +68,7 @@ class choose_db : public QWidget{
 	private slots:
 		void on_okay();
 		void on_browse();
+		void on_cancel();
 
 	private:
 		QLabel* admin_email; 
@@ -77,6 +78,7 @@ class choose_db : public QWidget{
 		QLineEdit *pass_line;
 		QPushButton *obutton;
 		QPushButton *bbutton;
+		QPushButton *cbutton;
 		QLineEdit *filepath;
 		QLabel *open_db_file;
 		void check_user(QString db_file);

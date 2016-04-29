@@ -251,8 +251,10 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 	pass_line->setEchoMode(QLineEdit::Password); 
 	obutton = new QPushButton("Okay", this);
 	bbutton = new QPushButton("Browse..", this);
+	cbutton = new QPushButton("Cancel", this);
 	filepath = new QLineEdit(this);
 	open_db_file = new QLabel("Database File:", this);
+
 	
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 
@@ -276,6 +278,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(obutton, 1, Qt::AlignRight);
+	hbox->addWidget(cbutton, 0);
 	vbox->addStretch(1);
 	vbox->addLayout(hbox);
 
@@ -283,6 +286,11 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
+	connect(cbutton, SIGNAL(clicked()), this, SLOT(on_cancel()));
+}
+
+void choose_db::on_cancel() {
+	this->parentWidget()->close();
 }
 
 void choose_db::on_okay() {

@@ -103,7 +103,7 @@ static const uint qt_meta_data_choose_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -113,12 +113,14 @@ static const uint qt_meta_data_choose_db[] = {
  // slots: signature, parameters, type, tag, flags
       11,   10,   10,   10, 0x08,
       21,   10,   10,   10, 0x08,
+      33,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_choose_db[] = {
     "choose_db\0\0on_okay()\0on_browse()\0"
+    "on_cancel()\0"
 };
 
 void choose_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -129,6 +131,7 @@ void choose_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->on_okay(); break;
         case 1: _t->on_browse(); break;
+        case 2: _t->on_cancel(); break;
         default: ;
         }
     }
@@ -167,9 +170,9 @@ int choose_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
