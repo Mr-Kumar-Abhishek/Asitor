@@ -22,7 +22,7 @@ static const uint qt_meta_data_new_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,13 +32,12 @@ static const uint qt_meta_data_new_db[] = {
  // slots: signature, parameters, type, tag, flags
        8,    7,    7,    7, 0x08,
       20,    7,    7,    7, 0x08,
-      30,    7,    7,    7, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_new_db[] = {
-    "new_db\0\0on_browse()\0on_okay()\0on_cancel()\0"
+    "new_db\0\0on_browse()\0on_okay()\0"
 };
 
 void new_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -49,7 +48,6 @@ void new_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->on_browse(); break;
         case 1: _t->on_okay(); break;
-        case 2: _t->on_cancel(); break;
         default: ;
         }
     }
@@ -61,7 +59,7 @@ const QMetaObjectExtraData new_db::staticMetaObjectExtraData = {
 };
 
 const QMetaObject new_db::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_new_db,
+    { &sub_win::staticMetaObject, qt_meta_stringdata_new_db,
       qt_meta_data_new_db, &staticMetaObjectExtraData }
 };
 
@@ -79,18 +77,18 @@ void *new_db::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_new_db))
         return static_cast<void*>(const_cast< new_db*>(this));
-    return QWidget::qt_metacast(_clname);
+    return sub_win::qt_metacast(_clname);
 }
 
 int new_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = sub_win::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 2;
     }
     return _id;
 }

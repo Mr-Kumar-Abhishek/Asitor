@@ -1,6 +1,6 @@
 #include "choose_db.h"
 
-choose_db::choose_db(QWidget *parent):QWidget(parent) {
+choose_db::choose_db(QWidget *parent):sub_win(parent) {
 	this->setWindowTitle("Open Database Connection");
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	this->resize(550,120);
@@ -46,11 +46,7 @@ choose_db::choose_db(QWidget *parent):QWidget(parent) {
 
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
-	connect(cbutton, SIGNAL(clicked()), this, SLOT(on_cancel()));
-}
-
-void choose_db::on_cancel() {
-	this->parentWidget()->close();
+	connect(cbutton, SIGNAL(clicked()), this, SLOT(close_me()));
 }
 
 void choose_db::on_okay() {

@@ -1,7 +1,6 @@
 #pragma once
 
-#include <QObject>
-#include <QWidget>
+#include "sub_win.h"
 #include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -13,7 +12,7 @@
 #include <QDialog>
 #include <QFileDialog>
 
-class choose_db : public QWidget{
+class choose_db : public sub_win{
 
 	Q_OBJECT
 
@@ -23,7 +22,6 @@ class choose_db : public QWidget{
 	private slots:
 		void on_okay();
 		void on_browse();
-		void on_cancel();
 
 	private:
 		QLabel* admin_email; 

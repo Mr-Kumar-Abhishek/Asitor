@@ -1,20 +1,16 @@
 #pragma once
 
-#include <QObject>
-#include <QWidget>
+#include "sub_win.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 
-class about_app : public QWidget {
+class about_app : public sub_win {
 
 	Q_OBJECT
 
 	public:
 		about_app(QWidget *parent = 0);
-
-	private slots:
-		void on_okay();
 
 	private:
 		QLabel* about_text;

@@ -1,6 +1,6 @@
 #include "new_db.h"
 
-new_db::new_db(QWidget *parent):QWidget(parent) {
+new_db::new_db(QWidget *parent):sub_win(parent) {
 	this->setWindowTitle("New Database");
 	this->resize(400,200);
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
@@ -47,11 +47,7 @@ new_db::new_db(QWidget *parent):QWidget(parent) {
 
 	connect(browse, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(nokay, SIGNAL(clicked()), this, SLOT(on_okay()));
-	connect(ncancel, SIGNAL(clicked()), this, SLOT(on_cancel()));
-}
-
-void new_db::on_cancel() {
-	this->parentWidget()->close();
+	connect(ncancel, SIGNAL(clicked()), this, SLOT(close_me()));
 }
 
 
