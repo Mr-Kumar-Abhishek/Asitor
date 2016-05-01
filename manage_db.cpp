@@ -28,6 +28,8 @@ manage_db::manage_db(){
 		db_messages->setText("Error occured, couldn't open database file.");
 	}
 	db_messages->exec(); */
+
+	setUnifiedTitleAndToolBarOnMac(true);
 }
 
 void manage_db::make_actions () {
