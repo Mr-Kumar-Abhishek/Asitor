@@ -57,21 +57,6 @@ void manage_db::make_actions () {
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 
-	/*Course menu QActions */
-
-	add_course = new QAction("&Add", this);
-	add_course->setStatusTip(tr("Add a new course."));
-	
-	view_course = new QAction("&View", this);
-	view_course->setStatusTip(tr("View available courses and their details."));
-
-	edit_course = new QAction("&Edit", this);
-	edit_course->setStatusTip("Edit details of a previously saved course.");
-
-	del_course = new QAction("&Delete", this);
-	del_course->setStatusTip("Delete a course from the database.");
-
-
 
 	/* Student menu QActions */
 
@@ -89,6 +74,39 @@ void manage_db::make_actions () {
 
 	del_student = new QAction("&Delete", this);
 	del_student->setStatusTip(tr("Delete any particular student profile from the database."));
+
+
+
+	/*Course menu QActions */
+
+	add_course = new QAction("&Add", this);
+	add_course->setStatusTip(tr("Add a new course."));
+	
+	view_course = new QAction("&View", this);
+	view_course->setStatusTip(tr("View available courses and their details."));
+
+	edit_course = new QAction("&Edit", this);
+	edit_course->setStatusTip("Edit details of a previously saved course.");
+
+	del_course = new QAction("&Delete", this);
+	del_course->setStatusTip("Delete a course from the database.");
+
+
+
+
+	/*Module menu QActions */
+
+	add_mod =  new QAction("&Add", this);
+	add_mod->setStatusTip("Add a module in a course.");
+
+	view_mod = new QAction("&View", this);
+	view_mod->setStatusTip("View module details in any course.");
+
+	edit_mod = new QAction("&Edit", this);
+	edit_mod->setStatusTip("Edit details of a module in a course.");
+
+	del_mod = new QAction("&Delete", this);
+	del_mod->setStatusTip("Delete a module from the database.");
 
 
 
@@ -128,6 +146,12 @@ void manage_db::make_menus () {
 	course_menu->addAction(view_course);
 	course_menu->addAction(edit_course);
 	course_menu->addAction(del_course);
+
+	mod_menu = menuBar()->addMenu("&Modules");
+	mod_menu->addAction(add_mod);
+	mod_menu->addAction(view_mod);
+	mod_menu->addAction(edit_mod);
+	mod_menu->addAction(del_mod);
 	
 	help_menu =  menuBar()->addMenu("&Help");
 	help_menu->addAction(about);
