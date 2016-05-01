@@ -3,8 +3,8 @@
 close_db::close_db(QWidget *parent): sub_win(parent) {
 	this->setWindowTitle("Close Database");
 	ask_close = new QLabel("Do you really want to close this database ??", this);
-	cancel_close_db = new QPushButton("Cancel", this);
-	ok_close_db = new QPushButton("Okay", this);
+	cancel_close_db = new QPushButton("No", this);
+	ok_close_db = new QPushButton("Yes", this);
 
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 	
