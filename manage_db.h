@@ -41,10 +41,15 @@ class manage_db : public QMainWindow {
 		QAction *view_student;
 		QAction *edit_student;
 		QAction *del_student;
+		QAction *add_course;
+		QAction *view_course;
+		QAction *edit_course;
+		QAction *del_course;
 		QAction *about;
 		QAction *license;
 		QAction *aboutQT;
 		QMenu *db_menu;
-		QMenu *help_menu;
 		QMenu *student_menu;
+		QMenu *course_menu;
+		QMenu *help_menu;
 };

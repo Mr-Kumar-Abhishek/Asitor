@@ -32,6 +32,8 @@ manage_db::manage_db(){
 
 void manage_db::make_actions () {
 	
+	/* Database Menu QActions */
+
 	newdb = new QAction("&New", this);
 	newdb->setShortcut(tr("CTRL+N"));
 	newdb->setStatusTip(tr("Create New Database File"));
@@ -54,6 +56,25 @@ void manage_db::make_actions () {
 	quit->setStatusTip(tr("Quit Asitor ?"));
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
+
+	/*Course menu QActions */
+
+	add_course = new QAction("&Add", this);
+	add_course->setStatusTip(tr("Add a new course."));
+	
+	view_course = new QAction("&View", this);
+	view_course->setStatusTip(tr("View available courses and their details."));
+
+	edit_course = new QAction("&Edit", this);
+	edit_course->setStatusTip("Edit details of a previously saved course.");
+
+	del_course = new QAction("&Delete", this);
+	del_course->setStatusTip("Delete a course from the database.");
+
+
+
+	/* Student menu QActions */
+
 	add_student = new QAction("&New", this);
 	add_student->setStatusTip(tr("Make a new student profile."));
 
@@ -68,6 +89,10 @@ void manage_db::make_actions () {
 
 	del_student = new QAction("&Delete", this);
 	del_student->setStatusTip(tr("Delete any particular student profile from the database."));
+
+
+
+	/* Help menu QActions */
 
 	about = new QAction("&About", this);
 	about->setStatusTip(tr("About Asitor."));
@@ -97,6 +122,12 @@ void manage_db::make_menus () {
 	student_menu->addAction(view_student);
 	student_menu->addAction(edit_student);
 	student_menu->addAction(del_student);
+
+	course_menu = menuBar()->addMenu("&Courses");
+	course_menu->addAction(add_course);
+	course_menu->addAction(view_course);
+	course_menu->addAction(edit_course);
+	course_menu->addAction(del_course);
 	
 	help_menu =  menuBar()->addMenu("&Help");
 	help_menu->addAction(about);
