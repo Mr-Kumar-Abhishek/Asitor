@@ -54,6 +54,21 @@ void manage_db::make_actions () {
 	quit->setStatusTip(tr("Quit Asitor ?"));
 	connect(quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
+	add_student = new QAction("&New", this);
+	add_student->setStatusTip(tr("Make a new student profile."));
+
+	admission = new QAction("&Admission", this);
+	admission->setStatusTip(tr("Admit student from a previously saved student profile."));
+
+	view_student = new QAction("&View", this);
+	view_student->setStatusTip(tr("View details of any student profile in the database."));
+
+	edit_student = new QAction("&Edit", this);
+	edit_student->setStatusTip(tr("Edit details of any student profile in the database."));
+
+	del_student = new QAction("&Delete", this);
+	del_student->setStatusTip(tr("Delete any particular student profile from the database."));
+
 	about = new QAction("&About", this);
 	about->setStatusTip(tr("About Asitor."));
 	connect(about, SIGNAL(triggered()), this, SLOT(on_about()));
@@ -75,10 +90,19 @@ void manage_db::make_menus () {
 	db_menu->addSeparator();
 	db_menu->addAction(switcher);
 	db_menu->addAction(quit);
+
+	student_menu = menuBar()->addMenu("&Students");
+	student_menu->addAction(add_student);
+	student_menu->addAction(admission);
+	student_menu->addAction(view_student);
+	student_menu->addAction(edit_student);
+	student_menu->addAction(del_student);
+	
 	help_menu =  menuBar()->addMenu("&Help");
 	help_menu->addAction(about);
 	help_menu->addAction(license);
 	help_menu->addAction(aboutQT);
+
 
 }
 

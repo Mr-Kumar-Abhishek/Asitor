@@ -36,9 +36,15 @@ class manage_db : public QMainWindow {
 		QAction *closedb;
 		QAction *switcher;
 		QAction *quit;
+		QAction *add_student;
+		QAction *admission;
+		QAction *view_student;
+		QAction *edit_student;
+		QAction *del_student;
 		QAction *about;
 		QAction *license;
 		QAction *aboutQT;
 		QMenu *db_menu;
 		QMenu *help_menu;
+		QMenu *student_menu;
 };
