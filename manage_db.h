@@ -21,6 +21,7 @@ class manage_db : public QMainWindow {
 		void on_open_db();
 		void switchingLayout();
 		void on_about();
+		void on_close_db();
 		
 	private:
 

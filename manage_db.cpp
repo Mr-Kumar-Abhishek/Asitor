@@ -1,6 +1,7 @@
 #include "about_app.h"
 #include "choose_db.h"
 #include "new_db.h"
+#include "close_db.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -43,6 +44,7 @@ void manage_db::make_actions () {
 
 	closedb = new QAction("&Close", this);
 	closedb->setStatusTip(tr("Close Database File"));
+	connect(closedb, SIGNAL(triggered()), this, SLOT(on_close_db()));
 
 	switcher = new QAction("Switch Layout Direction", this);
 	connect(switcher, SIGNAL(triggered()), this, SLOT(switchingLayout()));
@@ -96,6 +98,18 @@ void manage_db::on_open_db() {
 	c_db->show();
 }
 
+void manage_db::on_about(){
+	about_app* a_win = new about_app(this);
+	mdiSpace->addSubWindow(a_win);
+	a_win->show();
+}
+
+void manage_db::on_close_db() {
+	close_db* x_db = new close_db(this);
+	mdiSpace->addSubWindow(x_db);
+	x_db->show();
+}
+
 void manage_db::switchingLayout(){
 	if(layoutDirection() == Qt::LeftToRight) {
 		setStatusTip(tr("Switching Layout: From Right To Left."));
@@ -112,8 +126,3 @@ void manage_db::switchingLayout(){
 	}
 }
 
-void manage_db::on_about(){
-	about_app* a_win = new about_app(this);
-	mdiSpace->addSubWindow(a_win);
-	a_win->show();
-}
