@@ -22,6 +22,7 @@ class manage_db : public QMainWindow {
 		void switchingLayout();
 		void on_about();
 		void on_close_db();
+		void on_new_student();
 		
 	private:
 

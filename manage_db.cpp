@@ -2,6 +2,7 @@
 #include "choose_db.h"
 #include "new_db.h"
 #include "close_db.h"
+#include "new_student.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -64,6 +65,7 @@ void manage_db::make_actions () {
 
 	add_student = new QAction("&New", this);
 	add_student->setStatusTip(tr("Make a new student profile."));
+	connect(add_student, SIGNAL(triggered()), this, SLOT(on_new_student()));
 
 	admission = new QAction("&Admission", this);
 	admission->setStatusTip(tr("Admit student from a previously saved student profile."));
@@ -189,6 +191,12 @@ void manage_db::on_close_db() {
 	close_db* x_db = new close_db(this);
 	mdiSpace->addSubWindow(x_db);
 	x_db->show();
+}
+
+void manage_db::on_new_student() {
+	new_student* n_stu = new new_student(this);
+	mdiSpace->addSubWindow(n_stu);
+	n_stu->show();
 }
 
 void manage_db::switchingLayout(){
