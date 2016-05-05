@@ -86,4 +86,10 @@ class new_student: public sub_win {
 
 		QPushButton* n_stu_submit;
 		QPushButton* n_stu_cancel;
+
+		void make_labels();
+		void make_line_edits();
+		void make_comboboxes();
+		void make_text_edits();
+		void make_buttons();
 };

@@ -1,85 +1,16 @@
 #include "new_student.h"
 
 new_student::new_student(QWidget* parent):sub_win(parent){
+
 	this->setWindowTitle("New Student");
 	this->resize(550,120);
-	student_name = new QLabel("Student's Name : ", this);
-	guardian_name = new QLabel("Gaurdian's Name : ", this);
-	cellphone_no_1 = new QLabel("Primary Cellphone No.", this);
-	cellphone_no_2 = new QLabel("Secondary Cellphone No.", this);
-	email_id = new QLabel("Email ID : ", this);
-	gender = new QLabel("Gender : ", this);
-	dob = new QLabel("Date of Birth :", this);
-	acd = new QLabel("<u><b>Academic Details</b></u> <b>:</b>", this);
-	education = new QLabel("<b>Education</b>", this);
-	university = new QLabel("<b>Board / University</b>", this);
-	institute = new QLabel("<b>&nbsp;Institute</b>", this);
-	marks = new QLabel("<b>%Marks / CGPA</b>", this);
-	degree = new QLabel("<b>Degree</b>", this);
-	pass_year = new QLabel("<b>Year of passing</b>", this);
-	ssc = new QLabel("SSC(10<sup>th</sup>)", this);
-	hsc = new QLabel("HSC(12<sup>th</sup>)", this);
-	graduation = new QLabel("Graduation", this);
-	post_graduation = new QLabel("Post Graduation", this);
 
-	course_applied = new QLabel("Course opted for :", this);
-	exam_appearing = new QLabel("Exam to appear for :", this);
-
-	postal_address = new QLabel("<b>Postal Address with pin code : <b>");
-
-	stu_name_line = new QLineEdit(this);
-	gua_name_line = new QLineEdit(this);
-	celphn_1_line = new QLineEdit(this);
-	celphn_2_line = new QLineEdit(this);
-	email_line = new QLineEdit(this);
-	dob_line = new QLineEdit(this);
-
-	ssc_uni_line = new QLineEdit(this);
-	hsc_uni_line = new QLineEdit(this);
-	graduation_uni_line = new QLineEdit(this);
-	post_graduation_uni_line = new QLineEdit(this);
-
-	ssc_insti_line = new QLineEdit(this);
-	hsc_insti_line = new QLineEdit(this);
-	graduation_insti_line = new QLineEdit(this);
-	post_graduation_insti_line = new QLineEdit(this);
-
-	ssc_marks_line = new QLineEdit(this);
-	hsc_marks_line = new QLineEdit(this);
-	graduation_marks_line = new QLineEdit(this);
-	post_graduation_marks_line = new QLineEdit(this);
-
-	ssc_degree_line = new QLineEdit(this);
-	hsc_degree_line = new QLineEdit(this);
-	graduation_degree_line = new QLineEdit(this);
-	post_graduation_degree_line = new QLineEdit(this);
-
-	pass_year_ssc_line = new QLineEdit(this);
-	pass_year_hsc_line = new QLineEdit(this);
-	pass_year_graduation_line = new QLineEdit(this);
-	pass_year_post_graduation_line = new QLineEdit(this);
-
-	gender_combo = new QComboBox(this);
-	gender_combo->addItem("");
-	gender_combo->addItem("other");
-	gender_combo->addItem("female");
-	gender_combo->addItem("male");
-
-	course_applied_combo = new QComboBox(this);
-	course_applied_combo->addItem("");
-	course_applied_combo->addItem("test course 1");
-	course_applied_combo->addItem("test course 2");
-
-	exam_appearing_combo = new QComboBox(this);
-	exam_appearing_combo->addItem("");
-	exam_appearing_combo->addItem("demo exam 1");
-	exam_appearing_combo->addItem("demo exam 2");
-
-	n_stu_submit = new QPushButton("Submit", this);
-	n_stu_cancel = new QPushButton("Cancel", this);
-
-	address = new QTextEdit(this);
-
+	make_labels();
+	make_line_edits();
+	make_comboboxes();
+	make_text_edits();
+	make_buttons();
+	
 	QVBoxLayout* vbox = new QVBoxLayout(this);
 
 	QGridLayout* grid = new QGridLayout();
@@ -177,4 +108,104 @@ new_student::new_student(QWidget* parent):sub_win(parent){
 	setLayout(vbox);
 
 	connect(n_stu_cancel, SIGNAL(clicked()), this , SLOT(close_me()));
+}
+
+void new_student::make_buttons() {
+
+	n_stu_submit = new QPushButton("Submit", this);
+	n_stu_cancel = new QPushButton("Cancel", this);
+
+}
+
+void new_student::make_text_edits() {
+
+	address = new QTextEdit(this);
+
+}
+
+void new_student::make_comboboxes(){
+
+	gender_combo = new QComboBox(this);
+	gender_combo->addItem("");
+	gender_combo->addItem("other");
+	gender_combo->addItem("female");
+	gender_combo->addItem("male");
+
+	course_applied_combo = new QComboBox(this);
+	course_applied_combo->addItem("");
+	course_applied_combo->addItem("test course 1");
+	course_applied_combo->addItem("test course 2");
+
+	exam_appearing_combo = new QComboBox(this);
+	exam_appearing_combo->addItem("");
+	exam_appearing_combo->addItem("demo exam 1");
+	exam_appearing_combo->addItem("demo exam 2");
+
+}
+
+void new_student::make_line_edits() {
+
+	stu_name_line = new QLineEdit(this);
+	gua_name_line = new QLineEdit(this);
+	celphn_1_line = new QLineEdit(this);
+	celphn_2_line = new QLineEdit(this);
+	email_line = new QLineEdit(this);
+	dob_line = new QLineEdit(this);
+
+	ssc_uni_line = new QLineEdit(this);
+	hsc_uni_line = new QLineEdit(this);
+	graduation_uni_line = new QLineEdit(this);
+	post_graduation_uni_line = new QLineEdit(this);
+
+	ssc_insti_line = new QLineEdit(this);
+	hsc_insti_line = new QLineEdit(this);
+	graduation_insti_line = new QLineEdit(this);
+	post_graduation_insti_line = new QLineEdit(this);
+
+	ssc_marks_line = new QLineEdit(this);
+	hsc_marks_line = new QLineEdit(this);
+	graduation_marks_line = new QLineEdit(this);
+	post_graduation_marks_line = new QLineEdit(this);
+
+	ssc_degree_line = new QLineEdit(this);
+	hsc_degree_line = new QLineEdit(this);
+	graduation_degree_line = new QLineEdit(this);
+	post_graduation_degree_line = new QLineEdit(this);
+
+	pass_year_ssc_line = new QLineEdit(this);
+	pass_year_hsc_line = new QLineEdit(this);
+	pass_year_graduation_line = new QLineEdit(this);
+	pass_year_post_graduation_line = new QLineEdit(this);
+
+} 
+
+void new_student::make_labels() {
+
+	student_name = new QLabel("Student's Name : ", this);
+	guardian_name = new QLabel("Gaurdian's Name : ", this);
+	cellphone_no_1 = new QLabel("Primary Cellphone No.", this);
+	cellphone_no_2 = new QLabel("Secondary Cellphone No.", this);	
+	email_id = new QLabel("Email ID : ", this);
+	gender = new QLabel("Gender : ", this);
+	dob = new QLabel("Date of Birth :", this);
+
+	acd = new QLabel("<u><b>Academic Details</b></u> <b>:</b>", this);
+
+	education = new QLabel("<b>Education</b>", this);
+	university = new QLabel("<b>Board / University</b>", this);
+	institute = new QLabel("<b>&nbsp;Institute</b>", this);
+	marks = new QLabel("<b>%Marks / CGPA</b>", this);
+
+	degree = new QLabel("<b>Degree</b>", this);
+	pass_year = new QLabel("<b>Year of passing</b>", this);
+	ssc = new QLabel("SSC(10<sup>th</sup>)", this);
+	hsc = new QLabel("HSC(12<sup>th</sup>)", this);
+	graduation = new QLabel("Graduation", this);
+	post_graduation = new QLabel("Post Graduation", this);
+
+	course_applied = new QLabel("Course opted for :", this);
+	exam_appearing = new QLabel("Exam to appear for :", this);
+
+	postal_address = new QLabel("<b>Postal Address with pin code : <b>", this);
+
 }
