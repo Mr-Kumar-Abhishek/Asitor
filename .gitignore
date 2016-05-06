@@ -2,4 +2,7 @@
 asitor
 Makefile
 make
-
+Makefile.Debug
+Makefile.Release
+debug
+release
