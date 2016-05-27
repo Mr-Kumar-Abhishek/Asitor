@@ -130,6 +130,12 @@ void new_student::set_validators() {
 	pin_code_validator = new QRegExpValidator(QRegExp("[0-9]{1,6}"), pin_code_line);
 	pin_code_line->setValidator(pin_code_validator);
 
+	celphn_1_validator = new QRegExpValidator(QRegExp("[0-9]{1,11}"), celphn_1_line);
+	celphn_1_line->setValidator(celphn_1_validator);
+
+	celphn_2_validator = new QRegExpValidator(QRegExp("[0-9]{1,11}"), celphn_2_line);
+	celphn_2_line->setValidator(celphn_2_validator);
+
 }
 
 void new_student::make_text_edits() {

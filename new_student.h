@@ -49,6 +49,8 @@ class new_student: public sub_win {
 		QLabel* pin_code;
 
 		QRegExpValidator* pin_code_validator;
+		QRegExpValidator* celphn_1_validator;
+		QRegExpValidator* celphn_2_validator;
 
 		QComboBox* gender_combo;
 		QComboBox* course_applied_combo;
