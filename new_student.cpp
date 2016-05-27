@@ -10,6 +10,7 @@ new_student::new_student(QWidget* parent):sub_win(parent){
 	make_comboboxes();
 	make_text_edits();
 	make_buttons();
+	set_validators();
 	
 	QVBoxLayout* vbox = new QVBoxLayout(this);
 
@@ -121,6 +122,13 @@ void new_student::make_buttons() {
 
 	n_stu_submit = new QPushButton("Submit", this);
 	n_stu_cancel = new QPushButton("Cancel", this);
+
+}
+
+void new_student::set_validators() {
+	
+	pin_code_validator = new QRegExpValidator(QRegExp("[0-9]{1,6}"), pin_code_line);
+	pin_code_line->setValidator(pin_code_validator);
 
 }
 

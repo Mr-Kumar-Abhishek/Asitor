@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QSplitter>
+#include <QIntValidator>
 
 
 class new_student: public sub_win {
@@ -47,6 +48,7 @@ class new_student: public sub_win {
 		QLabel* address_label;
 		QLabel* pin_code;
 
+		QRegExpValidator* pin_code_validator;
 
 		QComboBox* gender_combo;
 		QComboBox* course_applied_combo;
@@ -95,5 +97,6 @@ class new_student: public sub_win {
 		void make_line_edits();
 		void make_comboboxes();
 		void make_text_edits();
+		void set_validators();
 		void make_buttons();
 };
