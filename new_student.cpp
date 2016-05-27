@@ -94,6 +94,7 @@ new_student::new_student(QWidget* parent):sub_win(parent){
 	vbox->addSpacing(30);
 	vbox->addWidget(postal_address);
 	vbox->addSpacing(15);
+	vbox->addWidget(address_label);
 	vbox->addWidget(address);
 	vbox->addSpacing(30);
 
@@ -215,6 +216,8 @@ void new_student::make_labels() {
 	exam_appearing = new QLabel("Exam to appear for :", this);
 
 	postal_address = new QLabel("<b>Postal Address with pin code : <b>", this);
+
+	address_label = new QLabel("Address:");
 
 	pin_code = new QLabel("Pin Code : ", this);
 

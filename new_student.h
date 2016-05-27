@@ -44,6 +44,7 @@ class new_student: public sub_win {
 		QLabel* exam_appearing;
 		QLabel* taken_test;
 		QLabel* postal_address;
+		QLabel* address_label;
 		QLabel* pin_code;
 
 
