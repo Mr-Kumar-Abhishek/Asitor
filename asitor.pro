@@ -4,7 +4,6 @@
 
 QT += sql
 TEMPLATE = app
-CONFIG -= moc
 CONFIG += debug_and_release
 DEPENDPATH += .
 INCLUDEPATH += .
