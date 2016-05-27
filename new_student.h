@@ -44,6 +44,7 @@ class new_student: public sub_win {
 		QLabel* exam_appearing;
 		QLabel* taken_test;
 		QLabel* postal_address;
+		QLabel* pin_code;
 
 
 		QComboBox* gender_combo;
@@ -81,6 +82,8 @@ class new_student: public sub_win {
 		QLineEdit* pass_year_hsc_line;
 		QLineEdit* pass_year_graduation_line;
 		QLineEdit* pass_year_post_graduation_line;
+
+		QLineEdit* pin_code_line;
 
 		QTextEdit* address;
 

@@ -97,6 +97,12 @@ new_student::new_student(QWidget* parent):sub_win(parent){
 	vbox->addWidget(address);
 	vbox->addSpacing(30);
 
+	grid = new QGridLayout();
+	grid->addWidget(pin_code, 0, 1);
+	grid->addWidget(pin_code_line, 0, 2);
+
+	vbox->addLayout(grid);
+
 
 	QHBoxLayout* hbox = new QHBoxLayout();
 	hbox->addWidget(n_stu_submit, 1, Qt::AlignRight);
@@ -177,6 +183,8 @@ void new_student::make_line_edits() {
 	pass_year_graduation_line = new QLineEdit(this);
 	pass_year_post_graduation_line = new QLineEdit(this);
 
+	pin_code_line = new QLineEdit(this);
+
 } 
 
 void new_student::make_labels() {
@@ -207,5 +215,7 @@ void new_student::make_labels() {
 	exam_appearing = new QLabel("Exam to appear for :", this);
 
 	postal_address = new QLabel("<b>Postal Address with pin code : <b>", this);
+
+	pin_code = new QLabel("Pin Code : ", this);
 
 }
