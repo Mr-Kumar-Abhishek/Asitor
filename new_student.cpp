@@ -100,10 +100,15 @@ new_student::new_student(QWidget* parent):sub_win(parent){
 	vbox->addSpacing(30);
 
 	grid = new QGridLayout();
-	grid->addWidget(pin_code, 0, 1);
-	grid->addWidget(pin_code_line, 0, 2);
+	grid->addWidget(city, 0, 1);
+	grid->addWidget(city_line, 0, 2);
+	grid->addWidget(state, 0, 3);
+	grid->addWidget(state_line, 0, 4);
+	grid->addWidget(pin_code, 0, 5);
+	grid->addWidget(pin_code_line, 0, 6);
 
 	vbox->addLayout(grid);
+	vbox->addSpacing(30);
 
 
 	QHBoxLayout* hbox = new QHBoxLayout();
@@ -198,6 +203,8 @@ void new_student::make_line_edits() {
 	pass_year_graduation_line = new QLineEdit(this);
 	pass_year_post_graduation_line = new QLineEdit(this);
 
+	state_line = new QLineEdit(this);
+	city_line = new QLineEdit(this);
 	pin_code_line = new QLineEdit(this);
 
 } 
@@ -233,6 +240,8 @@ void new_student::make_labels() {
 
 	address_label = new QLabel("Address:");
 
+	city = new QLabel("City : ", this);
+	state = new QLabel("State : ", this);
 	pin_code = new QLabel("Pin Code : ", this);
 
 }

@@ -46,6 +46,8 @@ class new_student: public sub_win {
 		QLabel* taken_test;
 		QLabel* postal_address;
 		QLabel* address_label;
+		QLabel* state;
+		QLabel* city;
 		QLabel* pin_code;
 
 		QRegExpValidator* pin_code_validator;
@@ -88,6 +90,8 @@ class new_student: public sub_win {
 		QLineEdit* pass_year_graduation_line;
 		QLineEdit* pass_year_post_graduation_line;
 
+		QLineEdit* city_line;
+		QLineEdit* state_line;
 		QLineEdit* pin_code_line;
 
 		QTextEdit* address;
