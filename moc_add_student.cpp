@@ -49,7 +49,7 @@ const QMetaObjectExtraData add_student::staticMetaObjectExtraData = {
 };
 
 const QMetaObject add_student::staticMetaObject = {
-    { &new_student::staticMetaObject, qt_meta_stringdata_add_student,
+    { &student::staticMetaObject, qt_meta_stringdata_add_student,
       qt_meta_data_add_student, &staticMetaObjectExtraData }
 };
 
@@ -67,12 +67,12 @@ void *add_student::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_add_student))
         return static_cast<void*>(const_cast< add_student*>(this));
-    return new_student::qt_metacast(_clname);
+    return student::qt_metacast(_clname);
 }
 
 int add_student::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = new_student::qt_metacall(_c, _id, _a);
+    _id = student::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;

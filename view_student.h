@@ -1,8 +1,8 @@
 #pragma once
 
-#include "new_student.h"
+#include "student.h"
 
-class view_student:public new_student {
+class view_student:public student {
 
     Q_OBJECT;
     

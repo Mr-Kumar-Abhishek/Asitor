@@ -1,12 +1,15 @@
 #pragma once
 
-#include "new_student.h"
+#include "student.h"
 
-class add_student:public new_student {
+class add_student:public student {
 
     Q_OBJECT;
     
     public:
         add_student(QWidget* parent = 0);
-        
+    
+    private:
+        QPushButton* admit_stu;
+        void create_buttons();
 };

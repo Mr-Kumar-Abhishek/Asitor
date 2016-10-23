@@ -16,6 +16,7 @@ HEADERS += about_app.h \
            manage_db.h \
            new_db.h \
            new_student.h \
+           student.h \
            sub_win.h \
            view_student.h
 SOURCES += about_app.cpp \
@@ -29,5 +30,6 @@ SOURCES += about_app.cpp \
            manage_db.cpp \
            new_db.cpp \
            new_student.cpp \
+           student.cpp \
            sub_win.cpp \
            view_student.cpp
