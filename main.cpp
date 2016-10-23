@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 
 	QApplication asitor(argc, argv);
 
-	QPixmap asitor_splasher(":/splash.gif");
+	QPixmap asitor_splasher("splash.gif");
 
 	QSplashScreen splash(asitor_splasher);
 	splash.setToolTip("Welcome !!");
