@@ -1,4 +1,3 @@
-
 QT += sql
 TEMPLATE = app
 TARGET = 
@@ -10,6 +9,7 @@ HEADERS += about_app.h \
            asitor.h \
            choose_db.h \
            close_db.h \
+           del_student.h \
            edit_student.h \
            license.h \
            manage_db.h \
@@ -20,6 +20,7 @@ HEADERS += about_app.h \
 SOURCES += about_app.cpp \
            choose_db.cpp \
            close_db.cpp \
+           del_student.cpp \
            edit_student.cpp \
            license.cpp \
            main.cpp \

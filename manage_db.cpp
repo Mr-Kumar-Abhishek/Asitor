@@ -6,6 +6,7 @@
 #include "license.h"
 #include "view_student.h"
 #include "edit_student.h"
+#include "del_student.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -81,8 +82,9 @@ void manage_db::make_actions () {
 	editing_student->setStatusTip(tr("Edit details of any student profile in the database."));
 	connect(editing_student, SIGNAL(triggered()), this, SLOT(on_edit_student()));
 
-	del_student = new QAction("&Delete", this);
-	del_student->setStatusTip(tr("Delete any particular student profile from the database."));
+	delete_student = new QAction("&Delete", this);
+	delete_student->setStatusTip(tr("Delete any particular student profile from the database."));
+	connect(delete_student, SIGNAL(triggered()), this, SLOT(on_del_student()));
 
 
 
@@ -149,7 +151,7 @@ void manage_db::make_menus () {
 	student_menu->addAction(admission);
 	student_menu->addAction(see_student);
 	student_menu->addAction(editing_student);
-	student_menu->addAction(del_student);
+	student_menu->addAction(delete_student);
 
 	course_menu = menuBar()->addMenu("&Courses");
 	course_menu->addAction(add_course);
@@ -215,6 +217,12 @@ void manage_db::on_view_student() {
 	view_student* v_stu = new view_student(this);
 	mdiSpace->addSubWindow(v_stu);
 	v_stu->show();
+}
+
+void manage_db::on_del_student(){
+	del_student* d_stu = new del_student(this);
+	mdiSpace->addSubWindow(d_stu);
+	d_stu->show();
 }
 
 void manage_db::on_edit_student() {
