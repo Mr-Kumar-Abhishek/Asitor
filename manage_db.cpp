@@ -3,6 +3,7 @@
 #include "new_db.h"
 #include "close_db.h"
 #include "new_student.h"
+#include "license.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -122,6 +123,7 @@ void manage_db::make_actions () {
 
 	license = new QAction("&License", this);
 	license->setStatusTip(tr("Asitor's License"));
+	connect(license, SIGNAL(triggered()),this, SLOT(on_license()));
 
 	aboutQT = new QAction("About QT", this);
 	aboutQT->setStatusTip(tr("About QT Library."));
@@ -197,6 +199,12 @@ void manage_db::on_new_student() {
 	new_student* n_stu = new new_student(this);
 	mdiSpace->addSubWindow(n_stu);
 	n_stu->show();
+}
+
+void manage_db::on_license(){
+	license_win* l_win = new license_win(this);
+	mdiSpace->addSubWindow(l_win);
+	l_win->show();
 }
 
 void manage_db::switchingLayout(){

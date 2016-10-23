@@ -30,14 +30,14 @@ static const uint qt_meta_data_new_db[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       8,    7,    7,    7, 0x08,
-      20,    7,    7,    7, 0x08,
+       7,   19,   19,   19, 0x08,
+      20,   19,   19,   19, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_new_db[] = {
-    "new_db\0\0on_browse()\0on_okay()\0"
+    "new_db\0on_browse()\0\0on_okay()\0"
 };
 
 void new_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)

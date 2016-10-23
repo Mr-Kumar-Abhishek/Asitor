@@ -30,13 +30,13 @@ static const uint qt_meta_data_sub_win[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       9,    8,    8,    8, 0x08,
+       8,   19,   19,   19, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_sub_win[] = {
-    "sub_win\0\0close_me()\0"
+    "sub_win\0close_me()\0\0"
 };
 
 void sub_win::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)

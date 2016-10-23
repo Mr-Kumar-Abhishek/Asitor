@@ -22,7 +22,7 @@ static const uint qt_meta_data_manage_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -30,20 +30,21 @@ static const uint qt_meta_data_manage_db[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      11,   10,   10,   10, 0x08,
-      23,   10,   10,   10, 0x08,
-      36,   10,   10,   10, 0x08,
-      54,   10,   10,   10, 0x08,
-      65,   10,   10,   10, 0x08,
-      79,   10,   10,   10, 0x08,
+      10,   22,   22,   22, 0x08,
+      23,   22,   22,   22, 0x08,
+      36,   22,   22,   22, 0x08,
+      54,   22,   22,   22, 0x08,
+      65,   22,   22,   22, 0x08,
+      79,   22,   22,   22, 0x08,
+      96,   22,   22,   22, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_manage_db[] = {
-    "manage_db\0\0on_new_db()\0on_open_db()\0"
+    "manage_db\0on_new_db()\0\0on_open_db()\0"
     "switchingLayout()\0on_about()\0on_close_db()\0"
-    "on_new_student()\0"
+    "on_new_student()\0on_license()\0"
 };
 
 void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -58,6 +59,7 @@ void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 3: _t->on_about(); break;
         case 4: _t->on_close_db(); break;
         case 5: _t->on_new_student(); break;
+        case 6: _t->on_license(); break;
         default: ;
         }
     }
@@ -96,9 +98,9 @@ int manage_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

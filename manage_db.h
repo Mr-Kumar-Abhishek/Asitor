@@ -23,6 +23,7 @@ class manage_db : public QMainWindow {
 		void on_about();
 		void on_close_db();
 		void on_new_student();
+		void on_license();
 		
 	private:
 

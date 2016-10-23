@@ -30,14 +30,14 @@ static const uint qt_meta_data_choose_db[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      11,   10,   10,   10, 0x08,
-      21,   10,   10,   10, 0x08,
+      10,   20,   20,   20, 0x08,
+      21,   20,   20,   20, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_choose_db[] = {
-    "choose_db\0\0on_okay()\0on_browse()\0"
+    "choose_db\0on_okay()\0\0on_browse()\0"
 };
 
 void choose_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
