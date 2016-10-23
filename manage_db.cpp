@@ -4,6 +4,7 @@
 #include "close_db.h"
 #include "new_student.h"
 #include "license.h"
+#include "view_student.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -71,8 +72,9 @@ void manage_db::make_actions () {
 	admission = new QAction("&Admission", this);
 	admission->setStatusTip(tr("Admit student from a previously saved student profile."));
 
-	view_student = new QAction("&View", this);
-	view_student->setStatusTip(tr("View details of any student profile in the database."));
+	see_student = new QAction("&View", this);
+	see_student->setStatusTip(tr("View details of any student profile in the database."));
+	connect(see_student, SIGNAL(triggered()), this, SLOT(on_view_student()));
 
 	edit_student = new QAction("&Edit", this);
 	edit_student->setStatusTip(tr("Edit details of any student profile in the database."));
@@ -143,7 +145,7 @@ void manage_db::make_menus () {
 	student_menu = menuBar()->addMenu("&Students");
 	student_menu->addAction(add_student);
 	student_menu->addAction(admission);
-	student_menu->addAction(view_student);
+	student_menu->addAction(see_student);
 	student_menu->addAction(edit_student);
 	student_menu->addAction(del_student);
 
@@ -205,6 +207,12 @@ void manage_db::on_license(){
 	license_win* l_win = new license_win(this);
 	mdiSpace->addSubWindow(l_win);
 	l_win->show();
+}
+
+void manage_db::on_view_student() {
+	view_student* v_stu = new view_student(this);
+	mdiSpace->addSubWindow(v_stu);
+	v_stu->show();
 }
 
 void manage_db::switchingLayout(){
