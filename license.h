@@ -14,6 +14,7 @@ class license_win : public sub_win {
         
         
     private:
+        QLabel* license_text;
         QPushButton* license_okay;
 
 };
