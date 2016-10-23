@@ -22,7 +22,7 @@ static const uint qt_meta_data_manage_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -40,6 +40,7 @@ static const uint qt_meta_data_manage_db[] = {
      109,   22,   22,   22, 0x08,
      127,   22,   22,   22, 0x08,
      145,   22,   22,   22, 0x08,
+     162,   22,   22,   22, 0x08,
 
        0        // eod
 };
@@ -49,7 +50,7 @@ static const char qt_meta_stringdata_manage_db[] = {
     "switchingLayout()\0on_about()\0on_close_db()\0"
     "on_new_student()\0on_license()\0"
     "on_view_student()\0on_edit_student()\0"
-    "on_del_student()\0"
+    "on_del_student()\0on_add_student()\0"
 };
 
 void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -68,6 +69,7 @@ void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 7: _t->on_view_student(); break;
         case 8: _t->on_edit_student(); break;
         case 9: _t->on_del_student(); break;
+        case 10: _t->on_add_student(); break;
         default: ;
         }
     }
@@ -106,9 +108,9 @@ int manage_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

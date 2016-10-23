@@ -7,6 +7,7 @@
 #include "view_student.h"
 #include "edit_student.h"
 #include "del_student.h"
+#include "add_student.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -67,13 +68,14 @@ void manage_db::make_actions () {
 
 	/* Student menu QActions */
 
-	add_student = new QAction("&New", this);
-	add_student->setStatusTip(tr("Make a new student profile."));
-	connect(add_student, SIGNAL(triggered()), this, SLOT(on_new_student()));
+	fresh_student = new QAction("&New", this);
+	fresh_student->setStatusTip(tr("Make a new student profile."));
+	connect(fresh_student, SIGNAL(triggered()), this, SLOT(on_new_student()));
 
 	admission = new QAction("&Admission", this);
 	admission->setStatusTip(tr("Admit student from a previously saved student profile."));
-
+	connect(admission, SIGNAL(triggered()), this, SLOT(on_add_student()));
+	
 	see_student = new QAction("&View", this);
 	see_student->setStatusTip(tr("View details of any student profile in the database."));
 	connect(see_student, SIGNAL(triggered()), this, SLOT(on_view_student()));
@@ -147,7 +149,7 @@ void manage_db::make_menus () {
 	db_menu->addAction(quit);
 
 	student_menu = menuBar()->addMenu("&Students");
-	student_menu->addAction(add_student);
+	student_menu->addAction(fresh_student);
 	student_menu->addAction(admission);
 	student_menu->addAction(see_student);
 	student_menu->addAction(editing_student);
@@ -229,6 +231,12 @@ void manage_db::on_edit_student() {
 	edit_student* e_stu = new edit_student(this);
 	mdiSpace->addSubWindow(e_stu);
 	e_stu->show();
+}
+
+void manage_db::on_add_student(){
+	add_student* a_stu = new add_student(this);
+	mdiSpace->addSubWindow(a_stu);
+	a_stu->show();
 }
 
 void manage_db::switchingLayout(){
