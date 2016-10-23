@@ -25,6 +25,7 @@ class manage_db : public QMainWindow {
 		void on_new_student();
 		void on_license();
 		void on_view_student();
+		void on_edit_student();
 		
 	private:
 
@@ -46,7 +47,7 @@ class manage_db : public QMainWindow {
 		QAction *add_student;
 		QAction *admission;
 		QAction *see_student;
-		QAction *edit_student;
+		QAction *editing_student;
 		QAction *del_student;
 
 		QAction *add_course;

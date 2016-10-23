@@ -5,6 +5,7 @@
 #include "new_student.h"
 #include "license.h"
 #include "view_student.h"
+#include "edit_student.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -76,8 +77,9 @@ void manage_db::make_actions () {
 	see_student->setStatusTip(tr("View details of any student profile in the database."));
 	connect(see_student, SIGNAL(triggered()), this, SLOT(on_view_student()));
 
-	edit_student = new QAction("&Edit", this);
-	edit_student->setStatusTip(tr("Edit details of any student profile in the database."));
+	editing_student = new QAction("&Edit", this);
+	editing_student->setStatusTip(tr("Edit details of any student profile in the database."));
+	connect(editing_student, SIGNAL(triggered()), this, SLOT(on_edit_student()));
 
 	del_student = new QAction("&Delete", this);
 	del_student->setStatusTip(tr("Delete any particular student profile from the database."));
@@ -146,7 +148,7 @@ void manage_db::make_menus () {
 	student_menu->addAction(add_student);
 	student_menu->addAction(admission);
 	student_menu->addAction(see_student);
-	student_menu->addAction(edit_student);
+	student_menu->addAction(editing_student);
 	student_menu->addAction(del_student);
 
 	course_menu = menuBar()->addMenu("&Courses");
@@ -213,6 +215,12 @@ void manage_db::on_view_student() {
 	view_student* v_stu = new view_student(this);
 	mdiSpace->addSubWindow(v_stu);
 	v_stu->show();
+}
+
+void manage_db::on_edit_student() {
+	edit_student* e_stu = new edit_student(this);
+	mdiSpace->addSubWindow(e_stu);
+	e_stu->show();
 }
 
 void manage_db::switchingLayout(){

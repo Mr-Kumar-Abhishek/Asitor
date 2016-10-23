@@ -10,6 +10,7 @@ HEADERS += about_app.h \
            asitor.h \
            choose_db.h \
            close_db.h \
+           edit_student.h \
            license.h \
            manage_db.h \
            new_db.h \
@@ -19,6 +20,7 @@ HEADERS += about_app.h \
 SOURCES += about_app.cpp \
            choose_db.cpp \
            close_db.cpp \
+           edit_student.cpp \
            license.cpp \
            main.cpp \
            manage_db.cpp \
