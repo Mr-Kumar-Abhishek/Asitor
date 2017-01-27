@@ -8,6 +8,7 @@
 #include "edit_student.h"
 #include "del_student.h"
 #include "add_student.h"
+#include "new_course.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -94,6 +95,7 @@ void manage_db::make_actions () {
 
 	add_course = new QAction("&Add", this);
 	add_course->setStatusTip(tr("Add a new course."));
+	connect(add_course, SIGNAL(triggered()), this, SLOT(on_add_course()));
 	
 	view_course = new QAction("&View", this);
 	view_course->setStatusTip(tr("View available courses and their details."));
@@ -239,6 +241,12 @@ void manage_db::on_add_student(){
 	a_stu->show();
 }
 
+void manage_db::on_add_course(){
+	new_course* a_cou = new new_course(this);
+	mdiSpace->addSubWindow(a_cou);
+	a_cou->show();
+}
+	
 void manage_db::switchingLayout(){
 	if(layoutDirection() == Qt::LeftToRight) {
 		setStatusTip(tr("Switching Layout: From Right To Left."));

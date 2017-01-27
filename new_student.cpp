@@ -1,7 +1,7 @@
 #include "new_student.h"
 
 new_student::new_student(QWidget* parent):student(parent){
-
+	
 	this->setWindowTitle("New Student");
 	
 	QHBoxLayout* hbox = new QHBoxLayout();

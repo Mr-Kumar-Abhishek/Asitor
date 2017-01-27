@@ -28,6 +28,7 @@ class manage_db : public QMainWindow {
 		void on_edit_student();
 		void on_del_student();
 		void on_add_student();
+		void on_add_course();
 		
 	private:
 
