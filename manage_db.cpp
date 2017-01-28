@@ -10,6 +10,7 @@
 #include "add_student.h"
 #include "new_course.h"
 #include "view_course.h"
+#include "edit_course.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -102,8 +103,9 @@ void manage_db::make_actions () {
 	see_course->setStatusTip(tr("View available courses and their details."));
 	connect(see_course, SIGNAL(triggered()), this, SLOT(on_view_course()));
 
-	edit_course = new QAction("&Edit", this);
-	edit_course->setStatusTip("Edit details of a previously saved course.");
+	editing_course = new QAction("&Edit", this);
+	editing_course->setStatusTip("Edit details of a previously saved course.");
+	connect(editing_course, SIGNAL(triggered()), this, SLOT(on_edit_course()));
 
 	del_course = new QAction("&Delete", this);
 	del_course->setStatusTip("Delete a course from the database.");
@@ -162,7 +164,7 @@ void manage_db::make_menus () {
 	course_menu = menuBar()->addMenu("&Courses");
 	course_menu->addAction(add_course);
 	course_menu->addAction(see_course);
-	course_menu->addAction(edit_course);
+	course_menu->addAction(editing_course);
 	course_menu->addAction(del_course);
 
 	mod_menu = menuBar()->addMenu("&Modules");
@@ -254,7 +256,13 @@ void manage_db::on_view_course(){
 	mdiSpace->addSubWindow(v_cou);
 	v_cou->show();
 }
-	
+
+void manage_db::on_edit_course(){
+	edit_course* e_cou = new edit_course(this);
+	mdiSpace->addSubWindow(e_cou);
+	e_cou->show();
+}
+
 void manage_db::switchingLayout(){
 	if(layoutDirection() == Qt::LeftToRight) {
 		setStatusTip(tr("Switching Layout: From Right To Left."));
