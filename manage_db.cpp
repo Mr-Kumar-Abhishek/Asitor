@@ -11,6 +11,7 @@
 #include "new_course.h"
 #include "view_course.h"
 #include "edit_course.h"
+#include "del_course.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -107,9 +108,9 @@ void manage_db::make_actions () {
 	editing_course->setStatusTip("Edit details of a previously saved course.");
 	connect(editing_course, SIGNAL(triggered()), this, SLOT(on_edit_course()));
 
-	del_course = new QAction("&Delete", this);
-	del_course->setStatusTip("Delete a course from the database.");
-
+	delete_course = new QAction("&Delete", this);
+	delete_course->setStatusTip("Delete a course from the database.");
+	connect(delete_course, SIGNAL(triggered()), this, SLOT(on_del_course()));
 
 
 
@@ -165,7 +166,7 @@ void manage_db::make_menus () {
 	course_menu->addAction(add_course);
 	course_menu->addAction(see_course);
 	course_menu->addAction(editing_course);
-	course_menu->addAction(del_course);
+	course_menu->addAction(delete_course);
 
 	mod_menu = menuBar()->addMenu("&Modules");
 	mod_menu->addAction(add_mod);
@@ -261,6 +262,12 @@ void manage_db::on_edit_course(){
 	edit_course* e_cou = new edit_course(this);
 	mdiSpace->addSubWindow(e_cou);
 	e_cou->show();
+}
+
+void manage_db::on_del_course(){
+	del_course* d_cou = new del_course(this);
+	mdiSpace->addSubWindow(d_cou);
+	d_cou->show();
 }
 
 void manage_db::switchingLayout(){

@@ -11,6 +11,7 @@ HEADERS += about_app.h \
            choose_db.h \
            close_db.h \
            course.h \
+           del_course.h \
            del_student.h \
            edit_course.h \
            edit_student.h \
@@ -28,6 +29,7 @@ SOURCES += about_app.cpp \
            choose_db.cpp \
            close_db.cpp \
            course.cpp \
+           del_course.cpp \
            del_student.cpp \
            edit_course.cpp \
            edit_student.cpp \
