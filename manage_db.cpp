@@ -9,6 +9,7 @@
 #include "del_student.h"
 #include "add_student.h"
 #include "new_course.h"
+#include "view_course.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -97,8 +98,9 @@ void manage_db::make_actions () {
 	add_course->setStatusTip(tr("Add a new course."));
 	connect(add_course, SIGNAL(triggered()), this, SLOT(on_add_course()));
 	
-	view_course = new QAction("&View", this);
-	view_course->setStatusTip(tr("View available courses and their details."));
+	see_course = new QAction("&View", this);
+	see_course->setStatusTip(tr("View available courses and their details."));
+	connect(see_course, SIGNAL(triggered()), this, SLOT(on_view_course()));
 
 	edit_course = new QAction("&Edit", this);
 	edit_course->setStatusTip("Edit details of a previously saved course.");
@@ -159,7 +161,7 @@ void manage_db::make_menus () {
 
 	course_menu = menuBar()->addMenu("&Courses");
 	course_menu->addAction(add_course);
-	course_menu->addAction(view_course);
+	course_menu->addAction(see_course);
 	course_menu->addAction(edit_course);
 	course_menu->addAction(del_course);
 
@@ -245,6 +247,12 @@ void manage_db::on_add_course(){
 	new_course* a_cou = new new_course(this);
 	mdiSpace->addSubWindow(a_cou);
 	a_cou->show();
+}
+
+void manage_db::on_view_course(){
+	view_course* v_cou = new view_course(this);
+	mdiSpace->addSubWindow(v_cou);
+	v_cou->show();
 }
 	
 void manage_db::switchingLayout(){

@@ -1,4 +1,3 @@
-
 QT += sql
 TEMPLATE = app
 TARGET = 
@@ -21,6 +20,7 @@ HEADERS += about_app.h \
            new_student.h \
            student.h \
            sub_win.h \
+           view_course.h \
            view_student.h
 SOURCES += about_app.cpp \
            add_student.cpp \
@@ -37,4 +37,5 @@ SOURCES += about_app.cpp \
            new_student.cpp \
            student.cpp \
            sub_win.cpp \
+           view_course.cpp \
            view_student.cpp
