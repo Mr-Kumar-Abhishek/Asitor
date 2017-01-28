@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Mr-Kumar-Abhishek/Asitor.svg?branch=master)](https://travis-ci.org/Mr-Kumar-Abhishek/Asitor) [![Join the chat at https://gitter.im/Mr-Kumar-Abhishek/Asitor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mr-Kumar-Abhishek/Asitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Stories in Ready](https://badge.waffle.io/Mr-Kumar-Abhishek/Asitor.png?label=ready&title=Ready)](https://waffle.io/Mr-Kumar-Abhishek/Asitor)
 
-This is a student information system meant for small coaching institutes to manage their students.
+Asitor is a management software.
 
 [![Throughput Graph](https://graphs.waffle.io/Mr-Kumar-Abhishek/Asitor/throughput.svg)](https://waffle.io/Mr-Kumar-Abhishek/Asitor/metrics) 
 
