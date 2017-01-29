@@ -25,6 +25,7 @@ HEADERS += about_app.h \
            student.h \
            sub_win.h \
            view_course.h \
+           view_mod.h \
            view_student.h
 SOURCES += about_app.cpp \
            add_mod.cpp \
@@ -46,4 +47,5 @@ SOURCES += about_app.cpp \
            student.cpp \
            sub_win.cpp \
            view_course.cpp \
+           view_mod.cpp \
            view_student.cpp
