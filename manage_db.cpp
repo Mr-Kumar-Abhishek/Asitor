@@ -14,6 +14,7 @@
 #include "del_course.h"
 #include "add_mod.h"
 #include "view_mod.h"
+#include "edit_mod.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -126,8 +127,9 @@ void manage_db::make_actions () {
 	see_mod->setStatusTip("View module details in any course.");
 	connect(see_mod, SIGNAL(triggered()),this, SLOT(on_see_mod()));
 
-	edit_mod = new QAction("&Edit", this);
-	edit_mod->setStatusTip("Edit details of a module in a course.");
+	editing_mod = new QAction("&Edit", this);
+	editing_mod->setStatusTip("Edit details of a module in a course.");
+	connect(editing_mod, SIGNAL(triggered()), this, SLOT(on_edit_mod()));
 
 	del_mod = new QAction("&Delete", this);
 	del_mod->setStatusTip("Delete a module from the database.");
@@ -175,7 +177,7 @@ void manage_db::make_menus () {
 	mod_menu = menuBar()->addMenu("&Modules");
 	mod_menu->addAction(new_mod);
 	mod_menu->addAction(see_mod);
-	mod_menu->addAction(edit_mod);
+	mod_menu->addAction(editing_mod);
 	mod_menu->addAction(del_mod);
 	
 	help_menu =  menuBar()->addMenu("&Help");
@@ -284,6 +286,12 @@ void manage_db::on_see_mod(){
 	view_mod* v_mod = new view_mod(this);
 	mdiSpace->addSubWindow(v_mod);
 	v_mod->show();
+}
+
+void manage_db::on_edit_mod(){
+	edit_mod* e_mod = new edit_mod(this);
+	mdiSpace->addSubWindow(e_mod);
+	e_mod->show();
 }
 
 void manage_db::switchingLayout(){

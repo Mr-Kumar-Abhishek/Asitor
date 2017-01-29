@@ -22,7 +22,7 @@ static const uint qt_meta_data_manage_db[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -47,6 +47,7 @@ static const uint qt_meta_data_manage_db[] = {
      229,   22,   22,   22, 0x08,
      245,   22,   22,   22, 0x08,
      258,   22,   22,   22, 0x08,
+     271,   22,   22,   22, 0x08,
 
        0        // eod
 };
@@ -59,7 +60,7 @@ static const char qt_meta_stringdata_manage_db[] = {
     "on_del_student()\0on_add_student()\0"
     "on_add_course()\0on_view_course()\0"
     "on_edit_course()\0on_del_course()\0"
-    "on_new_mod()\0on_see_mod()\0"
+    "on_new_mod()\0on_see_mod()\0on_edit_mod()\0"
 };
 
 void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -85,6 +86,7 @@ void manage_db::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 14: _t->on_del_course(); break;
         case 15: _t->on_new_mod(); break;
         case 16: _t->on_see_mod(); break;
+        case 17: _t->on_edit_mod(); break;
         default: ;
         }
     }
@@ -123,9 +125,9 @@ int manage_db::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 18;
     }
     return _id;
 }
