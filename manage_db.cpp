@@ -12,6 +12,7 @@
 #include "view_course.h"
 #include "edit_course.h"
 #include "del_course.h"
+#include "add_mod.h"
 #include "manage_db.h"
 
 manage_db::manage_db(){
@@ -116,8 +117,9 @@ void manage_db::make_actions () {
 
 	/*Module menu QActions */
 
-	add_mod =  new QAction("&Add", this);
-	add_mod->setStatusTip("Add a module in a course.");
+	new_mod =  new QAction("&Add", this);
+	new_mod->setStatusTip("Add a module in a course.");
+	connect(new_mod, SIGNAL(triggered()), this, SLOT(on_new_mod()));
 
 	view_mod = new QAction("&View", this);
 	view_mod->setStatusTip("View module details in any course.");
@@ -169,7 +171,7 @@ void manage_db::make_menus () {
 	course_menu->addAction(delete_course);
 
 	mod_menu = menuBar()->addMenu("&Modules");
-	mod_menu->addAction(add_mod);
+	mod_menu->addAction(new_mod);
 	mod_menu->addAction(view_mod);
 	mod_menu->addAction(edit_mod);
 	mod_menu->addAction(del_mod);
@@ -268,6 +270,12 @@ void manage_db::on_del_course(){
 	del_course* d_cou = new del_course(this);
 	mdiSpace->addSubWindow(d_cou);
 	d_cou->show();
+}
+
+void manage_db::on_new_mod(){
+	add_mod* a_mod = new add_mod(this);
+	mdiSpace->addSubWindow(a_mod);
+	a_mod->show();
 }
 
 void manage_db::switchingLayout(){

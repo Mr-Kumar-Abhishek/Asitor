@@ -6,8 +6,10 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += about_app.h \
+           add_mod.h \
            add_student.h \
            asitor.h \
+           c_modules.h \
            choose_db.h \
            close_db.h \
            course.h \
@@ -25,7 +27,9 @@ HEADERS += about_app.h \
            view_course.h \
            view_student.h
 SOURCES += about_app.cpp \
+           add_mod.cpp \
            add_student.cpp \
+           c_modules.cpp \
            choose_db.cpp \
            close_db.cpp \
            course.cpp \
