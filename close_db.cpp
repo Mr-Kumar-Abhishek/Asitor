@@ -2,13 +2,13 @@
 
 close_db::close_db(QWidget *parent): sub_win(parent) {
 	this->setWindowTitle("Close Database");
-	ask_close = new QLabel("Do you really want to close this database ??", this);
-	cancel_close_db = new QPushButton("No", this);
-	ok_close_db = new QPushButton("Yes", this);
-
-	QVBoxLayout *vbox = new QVBoxLayout(this);
 	
-	QHBoxLayout *hbox = new QHBoxLayout();
+	vbox = new QVBoxLayout(this);
+	
+	create_labels();
+	create_buttons();
+	
+	hbox = new QHBoxLayout();
 	hbox->addWidget(ask_close);
 	vbox->addLayout(hbox);
 	
@@ -21,4 +21,13 @@ close_db::close_db(QWidget *parent): sub_win(parent) {
 	setLayout(vbox);
 
 	connect(cancel_close_db, SIGNAL(clicked()), this, SLOT(close_me()));
+}
+
+void close_db::create_labels(){
+	ask_close = new QLabel("Do you really want to close this database ??", this);
+}
+
+void close_db::create_buttons(){
+	cancel_close_db = new QPushButton("No", this);
+	ok_close_db = new QPushButton("Yes", this);
 }

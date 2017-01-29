@@ -14,7 +14,11 @@ class close_db: public sub_win {
 		close_db(QWidget *parent = 0);
 
 	private:
+		QVBoxLayout* vbox;
+		QHBoxLayout* hbox;
 		QLabel *ask_close;
 		QPushButton *cancel_close_db;
 		QPushButton *ok_close_db;
+		void create_buttons();
+		void create_labels();
 };
