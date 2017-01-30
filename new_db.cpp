@@ -4,18 +4,10 @@ new_db::new_db(QWidget *parent):sub_win(parent) {
 	this->setWindowTitle("New Database");
 	this->resize(400,200);
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
-	admin_email = new QLabel("Admin Email: ", this);
-	password = new QLabel("Password: ", this);
-	choose_dir = new QLabel("Choose Folder: ", this);
-	give_db_name = new QLabel("Database File Name: ");
-	email_line = new QLineEdit(this);
-	pass_line = new QLineEdit(this);
-	pass_line->setEchoMode(QLineEdit::Password);
-	dir_line = new QLineEdit(this);
-	db_name_line = new QLineEdit(this);
-	nokay = new QPushButton("Okay", this);
-	ncancel = new QPushButton("Cancel", this);
-	browse = new QPushButton("Browse..", this);
+	
+	make_line_edits();
+	make_buttons();
+	make_labels();
 
 	QGridLayout* grid = new QGridLayout();
 	grid->addWidget(admin_email, 0, 0);
@@ -50,6 +42,32 @@ new_db::new_db(QWidget *parent):sub_win(parent) {
 	connect(ncancel, SIGNAL(clicked()), this, SLOT(close_me()));
 }
 
+void new_db::make_line_edits(){
+	email_line = new QLineEdit(this);
+	
+	pass_line = new QLineEdit(this);
+	pass_line->setEchoMode(QLineEdit::Password);
+
+	dir_line = new QLineEdit(this);
+	db_name_line = new QLineEdit(this);
+}
+
+void new_db::make_buttons(){
+	
+	nokay = new QPushButton("Okay", this);
+	ncancel = new QPushButton("Cancel", this);
+	browse = new QPushButton("Browse..", this);
+
+}
+
+void new_db::make_labels(){
+	
+	admin_email = new QLabel("Admin Email: ", this);
+	password = new QLabel("Password: ", this);
+	choose_dir = new QLabel("Choose Folder: ", this);
+	give_db_name = new QLabel("Database File Name: ");
+
+}
 
 void new_db::on_okay() {
 	QMessageBox* db_messages = new QMessageBox();

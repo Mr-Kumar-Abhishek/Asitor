@@ -35,5 +35,10 @@ class new_db : public sub_win {
 		QPushButton* nokay;
 		QPushButton* ncancel;
 		QPushButton* browse; 
+		
+		void make_labels();
+		void make_line_edits();
+		void make_buttons();
+		
 		bool exec_query(QSqlQuery query, QMessageBox* db_messages, bool success);
 };
