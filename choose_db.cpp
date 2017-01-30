@@ -4,17 +4,10 @@ choose_db::choose_db(QWidget *parent):sub_win(parent) {
 	this->setWindowTitle("Open Database Connection");
 	this->setWindowFlags(Qt::WindowCloseButtonHint);
 	this->resize(550,120);
-	admin_email = new QLabel("Admin Email: ", this);
-	password = new QLabel("Password: ", this);
-	email_line = new QLineEdit(this);
-	pass_line = new QLineEdit(this);
-	pass_line->setEchoMode(QLineEdit::Password); 
-	obutton = new QPushButton("Okay", this);
-	bbutton = new QPushButton("Browse..", this);
-	cbutton = new QPushButton("Cancel", this);
-	filepath = new QLineEdit(this);
-	open_db_file = new QLabel("Database File:", this);
 
+	make_labels();
+	make_line_edits();
+	make_buttons();
 	
 	QVBoxLayout *vbox = new QVBoxLayout(this);
 
@@ -47,6 +40,25 @@ choose_db::choose_db(QWidget *parent):sub_win(parent) {
 	connect(bbutton, SIGNAL(clicked()), this, SLOT(on_browse()));
 	connect(obutton, SIGNAL(clicked()), this, SLOT(on_okay()));
 	connect(cbutton, SIGNAL(clicked()), this, SLOT(close_me()));
+}
+
+void choose_db::make_buttons(){
+	obutton = new QPushButton("Okay", this);
+	bbutton = new QPushButton("Browse..", this);
+	cbutton = new QPushButton("Cancel", this);
+}
+
+void choose_db::make_line_edits(){
+	email_line = new QLineEdit(this);
+	pass_line = new QLineEdit(this);
+	pass_line->setEchoMode(QLineEdit::Password); 
+	filepath = new QLineEdit(this);
+}
+
+void choose_db::make_labels(){
+	admin_email = new QLabel("Admin Email: ", this);
+	password = new QLabel("Password: ", this);
+	open_db_file = new QLabel("Database File:", this);
 }
 
 void choose_db::on_okay() {

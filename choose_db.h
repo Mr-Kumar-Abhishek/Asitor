@@ -27,12 +27,19 @@ class choose_db : public sub_win{
 		QLabel* admin_email; 
 		QLabel* password;
 		QLabel* choose_dir;
+		QLabel *open_db_file;
+		
+		QLineEdit *filepath;
 		QLineEdit *email_line; 
 		QLineEdit *pass_line;
+		
 		QPushButton *obutton;
 		QPushButton *bbutton;
 		QPushButton *cbutton;
-		QLineEdit *filepath;
-		QLabel *open_db_file;
+		
+		void make_buttons();
+		void make_line_edits();
+		void make_labels();
+		
 		void check_user(QString db_file);
 };
