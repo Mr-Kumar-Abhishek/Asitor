@@ -61,6 +61,10 @@ class student:public sub_win {
         QRegExpValidator* hsc_marks_validator;
         QRegExpValidator* graduation_marks_validator;
         QRegExpValidator* post_graduation_marks_validator;
+        QRegExpValidator* pass_year_ssc_line_validator;
+        QRegExpValidator* pass_year_hsc_line_validator;
+        QRegExpValidator* pass_year_graduation_line_validator;
+        QRegExpValidator* pass_year_post_graduation_line_validator;
 
         QComboBox* gender_combo;
         QComboBox* course_applied_combo;

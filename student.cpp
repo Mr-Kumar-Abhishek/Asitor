@@ -141,7 +141,19 @@ void student::set_validators() {
 	
 	post_graduation_marks_validator = new QRegExpValidator(QRegExp("[0-9]+(\\.[0-9]*)?"), post_graduation_marks_line);
 	post_graduation_marks_line->setValidator(post_graduation_marks_validator);
-
+	
+	pass_year_ssc_line_validator = new QRegExpValidator(QRegExp("[0-9]{1,4}"), pass_year_ssc_line);
+	pass_year_ssc_line->setValidator(pass_year_ssc_line_validator);
+	
+	pass_year_hsc_line_validator = new QRegExpValidator(QRegExp("[0-9]{1,4}"), pass_year_hsc_line);
+	pass_year_hsc_line->setValidator(pass_year_hsc_line_validator);
+	
+	pass_year_graduation_line_validator = new QRegExpValidator(QRegExp("[0-9]{1,4}"), pass_year_graduation_line);
+	pass_year_graduation_line->setValidator(pass_year_graduation_line_validator);
+	
+	pass_year_post_graduation_line_validator = new QRegExpValidator(QRegExp("[0-9]{1,4}"), pass_year_post_graduation_line);
+	pass_year_post_graduation_line->setValidator(pass_year_graduation_line_validator);
+	
 }
 
 void student::make_text_edits() {
