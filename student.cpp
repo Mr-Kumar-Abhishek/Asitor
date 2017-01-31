@@ -129,6 +129,18 @@ void student::set_validators() {
 
 	celphn_2_validator = new QRegExpValidator(QRegExp("[0-9]{1,11}"), celphn_2_line);
 	celphn_2_line->setValidator(celphn_2_validator);
+	
+	ssc_marks_validator = new QRegExpValidator(QRegExp("[0-9]+(\\.[0-9]*)?"), ssc_marks_line);
+	ssc_marks_line->setValidator(ssc_marks_validator);
+	
+	hsc_marks_validator = new QRegExpValidator(QRegExp("[0-9]+(\\.[0-9]*)?"), hsc_marks_line);
+	hsc_marks_line->setValidator(hsc_marks_validator);
+	
+	graduation_marks_validator = new QRegExpValidator(QRegExp("[0-9]+(\\.[0-9]*)?"), graduation_marks_line);
+	graduation_marks_line->setValidator(graduation_marks_validator);
+	
+	post_graduation_marks_validator = new QRegExpValidator(QRegExp("[0-9]+(\\.[0-9]*)?"), post_graduation_marks_line);
+	post_graduation_marks_line->setValidator(post_graduation_marks_validator);
 
 }
 

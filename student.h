@@ -57,6 +57,10 @@ class student:public sub_win {
         QRegExpValidator* pin_code_validator;
         QRegExpValidator* celphn_1_validator;
         QRegExpValidator* celphn_2_validator;
+        QRegExpValidator* ssc_marks_validator;
+        QRegExpValidator* hsc_marks_validator;
+        QRegExpValidator* graduation_marks_validator;
+        QRegExpValidator* post_graduation_marks_validator;
 
         QComboBox* gender_combo;
         QComboBox* course_applied_combo;
